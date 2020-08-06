@@ -1,0 +1,13 @@
+J2SE vs J2EE
+
+J2SE(Standard Edition)
+- local machine 에서만 돌아감
+-java Application
+-JDBC
+-->JDK만 설치
+
+
+J2EE(Enterprize Edition)
+-Web Program
+-Spring Framework
+-->JDK 설치 + 서버 

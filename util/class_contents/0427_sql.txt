@@ -1,0 +1,13 @@
+구조
+1. 여러개의 Database 들이 존재
+----> show Databases;
+2. 특정한 데이터베이스를 선택(지정)
+----> use mysql;   >>>>Database changed
+3. 특정한 스키마 안은 여러개의 table로 구성
+----> show tables;
+4. 테이블 구조
+----> desc user;
+
+
+columm열
+row 행 레코드 tuple 

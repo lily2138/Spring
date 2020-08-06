@@ -1,0 +1,17 @@
+1. 테이블 생성
+ CREATE TABLE mytable(
+ 	id tinyint not null,
+	name varchar(10),
+	addr varchar(50),
+	birthdate date);
+
+2. 테이블에 값 입력
+INSERT INTO mytable( id, name, addr, birthdate) VALUES(1,'A','A',curdate());
+INSERT INTO mytable( id, name, addr, birthdate) VALUES(1,'A','A','2020-01-11');
+
+3. 테이블 값(행)  삭제
+DELETE FROM mytable; //모든 행이 삭제됨
+DELETE FROM mytable WHERE id=1;
+
+4. 테이블 컬럼값 수정
+UPDATE mytable SET 수정할 컬럼명 = 컬럼값, 수정할 컬럼명 = 컬럼값 WHERE id=1;

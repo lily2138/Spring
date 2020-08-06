@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 개발자 정의 인스턴스 :: setter로 단순파라미터 주입 :: 01유저(id), 01(age) -->
+	<bean id="user01" class="spring.service.domain.User">
+		<property name="userId" value="01유저"/>
+		<property name="age" value="01"/>
+	</bean>
+	
+	<!-- API 인스턴스 정의 :: 생성자를 통한 단순 파라미터 값 주입 -->
+	<bean id="password" class="java.lang.String">
+		<constructor-arg value="6666"/>
+	</bean>
+	
+	<!-- 개발자 정의 인스턴스 :: setter로 단순파라미터 주입 :: 02유저(id), 02(age), 6666(password) -->
+	<bean id="user02" class="spring.service.domain.User">
+		<property name="userId" value="02유저"/>
+		<property name="age" value="02"/>
+		<property name="password" ref="password"/>
+	</bean>
+	
+	<!-- 개발자 정의 인스턴스 user03:: DI가 없음 -->
+	<bean id="user03" class="spring.service.domain.User"/>
+	
+	
+	<!-- 개발자 정의 인스턴스 user04:: 생성자 주입 :: 04, 04유저 -->
+	<!-- 생성자로 값을 여러개 주입할 때 index, type, name이 세가지 옵션을 사용할 수 있다. -->
+	<bean id = "user04" class="spring.service.domain.User">
+		<constructor-arg value="04유저" index="1" />
+		<constructor-arg value="04" index="0"/>
+	</bean>
+	
+	<bean id = "user05" class="spring.service.domain.User">
+	<!-- 
+		<constructor-arg value="05유저" index="2" />
+		<constructor-arg value="05" index="0"/>
+		<constructor-arg value="0505" index="1"/> -->
+		
+<!-- 		
+		<constructor-arg value="05유저" type="String" />   type="java.lang.String
+		<constructor-arg value="05" type="int"/>
+		<constructor-arg value="0505" index="1"/> -->
+		
+		<property name="age" value="05"/>
+		<property name="password" value="0505"/>
+		<property name="userId" value="05유저"/>
+	</bean>
+	
+	
+	
+</beans>

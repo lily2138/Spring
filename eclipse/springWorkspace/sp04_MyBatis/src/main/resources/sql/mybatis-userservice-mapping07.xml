@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	
+<!--  
+	ResultMap >>> select쿼리문에서만 사용된다
+	 Dynamic Query
+ -->
+ 
+<!-- SQL definition -->
+<mapper namespace="UserMapper07">
+	<resultMap type="user" id="userSelectRM">
+		<result property="userId" column="user_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="password" column="password"/>
+		<result property="age" column="age"/>
+		<result property="grade" column="grade"/>
+		<result property="regDate" column="reg_date"/>
+	</resultMap>
+	
+	<!-- 정적인쿼리(Static Query)
+		SELECT 문에서 WHERE절 조건을 어떻게 주느냐에 따라서 계속적으로 서로다른 select무니 만들어지는 쿼리
+		
+		동적인쿼리(Dynamic Query)
+		SELECT문에서 WHERE절 조건이 바뀌더라도 하나의 SELECT문으로 커버될 수 있는 쿼리
+		즉, 하나의 SELECT문으로 4,5개 이상의 WHERE절을 소화할 수 있다.
+	 -->
+	
+	
+	<select id="getUserList" parameterType="string" resultMap="userSelectRM">
+		SELECT
+		user_id, user_name, password, age, grade, reg_date
+		FROM users
+		WHERE user_name=#{value}
+	</select>
+	
+		<select id="getUserList01" parameterType="user" resultMap="userSelectRM">
+		SELECT
+		user_id, user_name, password, age, grade, reg_date
+		FROM users
+		<where>
+			<if test="userName != null">
+				user_name LIKE #{userName}
+			</if>
+			<if test="age != null">
+				OR age LIKE #{age}
+			</if>
+		</where>
+		
+		ORDER BY user_id DESC
+	</select>
+</mapper>

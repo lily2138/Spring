@@ -1,0 +1,23 @@
+Access Modifier : public, private, protected
+Usagge Modifier : abstract, static, final
+
+private<package<protected<public
+
+
+==================================================
+
+Collection 가장 원시적인 방법으로 자료를 저장
+
+                       set ----extends----> collection <----extends---- list
+set - (unique) : collection 다음으로 원시적인 저장법
+	      중복도 안되고 순서도 안됨
+list - (order) : 시작점과 끝점을 가지면서 환원점으로 자료를 저장 
+                  index 시스템같이 돌아감
+	      중복도 되고 순서도 가지고 있음
+
+
+
+Map : key-value 쌍으로 자료를 저장
+	모두 String으로 표현된다. Object 아님.
+	put()은 add만 되는게 아님. key가 없으면 추가가 되고, 
+	key가 있으면 수정이 된다

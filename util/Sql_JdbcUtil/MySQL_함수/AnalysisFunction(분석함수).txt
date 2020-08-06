@@ -1,0 +1,200 @@
+분석함수의 종류
+- 순위함수 : RANK, DENSE_RANK, ROW_NUMBER, NTILE
+- 집계함수 : SUM, MIN, MAX, AVG, COUNT
+- 기타함수 : LEAD, LAG, FIRST_VALUE, LAST_VALUE, RATIO_TO_REPORT (mariadb 지원안됨)
+
+-- rank() 
+RANK 함수는 ORDER BY를 포함한 QUERY 문에서 특정 항목(칼럼)에 대한 순위를 구하는 함수이다.
+select empno, ename, deptno, sal,
+       rank() over(order by sal DESC) 급여순위
+       from emp;
+
+-- dense_rank() 
+DENSE_RANK 함수는 RANK 함수와 흡사하나, 동일한 순위를 하나의 건수로 취급하는 것이 틀린 점이다.
+select empno, ename, deptno, sal,
+       dense_rank() over(order by sal DESC)
+       from emp;
+
+--ntile : 버킷 단위로 나누어서 출력
+select empno, ename, deptno, sal,
+       ntile(5) over(order by sal desc) from emp;
++-------+--------+--------+------+----------------------------------+
+| empno | ename  | deptno | sal  | ntile(5) over(order by sal desc) |
++-------+--------+--------+------+----------------------------------+
+|  7839 | KING   |     10 | 5000 |                                1 |
+|  7788 | SCOTT  |     20 | 3000 |                                1 |
+|  7902 | FORD   |     20 | 3000 |                                1 |
+|  7566 | JONES  |     20 | 2975 |                                2 |
+|  7698 | BLAKE  |     30 | 2850 |                                2 |
+|  7782 | CLARK  |     10 | 2450 |                                2 |
+|  7499 | ALLEN  |     30 | 1600 |                                3 |
+|  7844 | TURNER |     30 | 1500 |                                3 |
+|  7934 | MILLER |     10 | 1300 |                                3 |
+|  7521 | WARD   |     30 | 1250 |                                4 |
+|  7654 | MARTIN |     30 | 1250 |                                4 |
+|  7876 | ADAMS  |     20 | 1100 |                                4 |
+|  7900 | JAMES  |     30 |  950 |                                5 |
+|  7369 | SMITH  |     20 |  800 |                                5 |
++-------+--------+--------+------+----------------------------------+
+14 rows in set (0.00 sec)
+
+
+--cumulative distribution function : 누적 확률 밀도 함수
+select empno, ename, deptno, sal,
+       cume_dist() over(order by sal desc)
+       from emp;
+
+-- row_number : 일련번호 출력
+select empno, ename, sal, hiredate, row_number() from emp; //(X)
+select empno, ename, sal, hiredate, row_number() over() from emp; //(O)
+select empno, ename, sal, hiredate, row_number() over() Numbering from emp; //(O)
+select empno, ename, sal, hiredate, row_number() over() Numbering from emp
+							where Numbering = 2; //(X)
+select empno, ename, sal, hiredate, row_number() over() Numbering from emp
+							LIMIT 2; //(O)
+select empno, ename, sal, hiredate,
+       row_number() over(order by sal desc, hiredate asc) numbering
+       from emp;
+
+---------------------------------------------------------------------------
+mysql>  select empno, ename, sal, hiredate, deptno,
+	sum(sal) sumsal from emp;
+
+mysql>  select empno, ename, sal, hiredate, deptno,
+	sum(sal) over() sumsal from emp;
+
+mysql>  select empno, ename, sal, hiredate, deptno,
+	sum(sal) over() sumsal,
+        sum(sal) over(partition by deptno) sumdeptno        
+	from emp order by sumdeptno;
++-------+--------+---------+------------+--------+----------+-----------+
+| empno | ename  | sal     | hiredate   | deptno | sumsal   | sumdeptno |
++-------+--------+---------+------------+--------+----------+-----------+
+|  7782 | CLARK  | 2450.00 | 2017-10-19 |     10 | 29025.00 |   8750.00 |
+|  7839 | KING   | 5000.00 | 2014-08-19 |     10 | 29025.00 |   8750.00 |
+|  7934 | MILLER | 1300.00 | 2002-10-19 |     10 | 29025.00 |   8750.00 |
+|  7844 | TURNER | 1500.00 | 2010-10-19 |     30 | 29025.00 |   9400.00 |
+|  7900 | JAMES  |  950.00 | 2018-10-19 |     30 | 29025.00 |   9400.00 |
+|  7499 | ALLEN  | 1600.00 | 2000-10-19 |     30 | 29025.00 |   9400.00 |
+|  7521 | WARD   | 1250.00 | 2013-05-19 |     30 | 29025.00 |   9400.00 |
+|  7654 | MARTIN | 1250.00 | 2008-04-19 |     30 | 29025.00 |   9400.00 |
+|  7698 | BLAKE  | 2850.00 | 2016-11-19 |     30 | 29025.00 |   9400.00 |
+|  7566 | JONES  | 2975.00 | 2018-10-19 |     20 | 29025.00 |  10875.00 |
+|  7788 | SCOTT  | 3000.00 | 2013-10-11 |     20 | 29025.00 |  10875.00 |
+|  7876 | ADAMS  | 1100.00 | 2000-09-19 |     20 | 29025.00 |  10875.00 |
+|  7902 | FORD   | 3000.00 | 2003-10-19 |     20 | 29025.00 |  10875.00 |
+|  7369 | SMITH  |  800.00 | 2010-10-19 |     20 | 29025.00 |  10875.00 |
++-------+--------+---------+------------+--------+----------+-----------+
+14 rows in set (0.00 sec)
+
+
+-- over() 
+select empno, ename, sal , sum(sal)  from emp; //over() 를 사용안했을때
+select empno, ename, sal , sum(sal) over() 급여의총합 from emp;
+
+--부분별 합 over(partition by)
+select empno, ename,  deptno,sal
+		, sum(sal) over() 급여총합
+		, sum(sal) over(partition by deptno) 부서별급여총합
+		from emp;
+
+select empno, ename, sal
+		, avg(sal) over(partition by job) 업무별평균급여
+		, max(sal) over(partition by job) 업무별최대급여
+                from emp;
+
+-- 부분별 합계및 평균구하해서 활용
+select empno, ename, sal
+		, round(avg(sal) over(partition by job), 0) jobavg
+		, max(sal) over(partition by job) jobmax from emp;
+
+----------------------------------------------------------------------------
+
+-- 행단위 위 아래 값들의 합
+-- between 2 preceding and 1 following : 위로 두행 아래로 한행의 합 
+-- 윈도우 절은 PARTITION BY 절로 명시된 전체 그룹에서 부분 집합인 윈도우를 지정하는데, 
+-- 그 시작과 끝 범위는 BETWEEN a AND b 형태로 지정되며, 
+-- a와 b 값에 따라 윈도우 함수가 그 계산을 수행하게 된다
+-- UNBOUNDED PRECEDING : 윈도우 시작 위치가 첫 번째 로우임을 의미
+-- UNBOUNDED FOLLOWING : 윈도우 마지막 위치가 마지막 로우임을 위미
+-- CURRENT ROW : 윈도우 시작 위치가 현재 로우임을 의미
+select empno, ename, sal
+		, sum(sal) over(order by sal
+        					rows
+                            	between 1 preceding and 1 following )
+from emp;
+
+--
+select deptno, empno, sal
+	   , SUM(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) col1
+       , SUM(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW        ) col2
+       , SUM(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN CURRENT ROW         AND UNBOUNDED FOLLOWING) col3
+    from emp
+  where deptno = 20;
+  +--------+-------+------+-------+-------+-------+
+| deptno | empno | sal  | col1  | col2  | col3  |
++--------+-------+------+-------+-------+-------+
+|     20 |  7369 |  800 | 10875 |   800 | 10875 |
+|     20 |  7566 | 2975 | 10875 |  3775 | 10075 |
+|     20 |  7788 | 3000 | 10875 |  6775 |  7100 |
+|     20 |  7876 | 1100 | 10875 |  7875 |  4100 |
+|     20 |  7902 | 3000 | 10875 | 10875 |  3000 |
++--------+-------+------+-------+-------+-------+
+5 rows in set (0.00 sec)
+
+-- LAG ( expr, offset, default ) OVER ( PARTITION BY 절 )
+-- LEAD ( expr, offset, default ) OVER ( PARTITION BY 절 )
+-- LAG : 계산 대상 데이터(로우)들을 PARTITION BY 절로 구분하여, expr에 명시된 값을 기준으로 이전 로우의 값을 반환
+--       off : 생략 가능한데, 생략할 경우 기본값(1)으로 설정됨 (바로 이전 로우의 값을 반환)
+--       default: offset에 지정된 로우가 존재하지 않을 경우 LAG 함수가 반환하는 기본 값. 이 역시 생략 가능
+-- LEAD : 이전 로우가 아닌 이후의 로우값을 반환
+
+  select date_format(hiredate, '%Y') dyear
+     , count(*)
+     , LAG(count(*))        OVER (ORDER BY hiredate)   lag1  -- 이전 년도 사원수
+     , LAG(count(*), 1, 0)  OVER (ORDER BY hiredate)   lag2  -- 이전 년도 사원수(상동)
+     , LAG(count(*), 2, 0)  OVER (ORDER BY hiredate)   lag3  -- 2년전 사원수
+     , LEAD(count(*))       OVER (ORDER BY hiredate)   lead1 -- 이후 년도 사원수
+     , LEAD(count(*), 1, 0) OVER (ORDER BY hiredate)   lead2 -- 이후 년도 사원수(상동)
+     , LEAD(count(*), 2, 0) OVER (ORDER BY hiredate)   lead3 -- 2년후 사원수
+  from emp
+ group by dyear  ;
+
++-----------------------------+----------+------+------+------+-------+-------+-------+
+| date_format(hiredate, '%Y') | count(*) | lag1 | lag2 | lag3 | lead1 | lead2 | lead3 |
++-----------------------------+----------+------+------+------+-------+-------+-------+
+| 1980                        |        1 | NULL |    0 |    0 |    10 |    10 |     1 |
+| 1981                        |       10 |    1 |    1 |    0 |     1 |     1 |     2 |
+| 1982                        |        1 |   10 |   10 |    1 |     2 |     2 |     0 |
+| 1987                        |        2 |    1 |    1 |   10 |  NULL |     0 |     0 |
++-----------------------------+----------+------+------+------+-------+-------+-------+
+4 rows in set (0.00 sec)
+
+-- FIRST_VALUE와 LAST_VALUE
+--  : 윈도우 절과 함께 사용되어 가장 첫 번째 로우와 가장 마지막 로우의 값을 반환한다.
+--  : 윈도우 함수를 사용하면서 계산이 어느 범위에서 이루어지는지 어리버리할 때 사용하면 좋다.
+select deptno
+       , empno
+       , sal
+       , FIRST_VALUE(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) col1_first
+       , LAST_VALUE (sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) col1_last
+       , FIRST_VALUE(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW        ) col2_first
+       , LAST_VALUE (sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW        ) col2_last
+       , FIRST_VALUE(sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN CURRENT ROW         AND UNBOUNDED FOLLOWING) col3_first
+       , LAST_VALUE (sal) OVER (PARTITION BY deptno ORDER BY empno ROWS BETWEEN CURRENT ROW         AND UNBOUNDED FOLLOWING) col3_last
+  from emp
+  where deptno = 20;
+
++--------+-------+------+------------+-----------+------------+-----------+------------+-----------+
+| deptno | empno | sal  | col1_first | col1_last | col2_first | col2_last | col3_first | col3_last |
++--------+-------+------+------------+-----------+------------+-----------+------------+-----------+
+|     20 |  7369 |  800 |        800 |      3000 |        800 |       800 |        800 |      3000 |
+|     20 |  7566 | 2975 |        800 |      3000 |        800 |      2975 |       2975 |      3000 |
+|     20 |  7788 | 3000 |        800 |      3000 |        800 |      3000 |       3000 |      3000 |
+|     20 |  7876 | 1100 |        800 |      3000 |        800 |      1100 |       1100 |      3000 |
+|     20 |  7902 | 3000 |        800 |      3000 |        800 |      3000 |       3000 |      3000 |
++--------+-------+------+------------+-----------+------------+-----------+------------+-----------+
+5 rows in set (0.00 sec)
+
+-- RATIO_TO_REPORT
+-- 계산 대상 값 전체에 대한 현재 로우의 상대적인 비율 값을 반환

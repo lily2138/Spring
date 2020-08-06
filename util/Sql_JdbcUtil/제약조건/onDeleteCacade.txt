@@ -1,0 +1,8 @@
+//1.먼저 이전에 우리가 Shares 테이블에 적용했던 제약조건을
+    다시 drop 시킨다....제약조건을 다시 줘야 한다!!
+    :: ALTER TABLE shares DROP constraint fk_shares_ssn;
+//2. 제약조건을 다시 부여
+     부모 테이블의 ssn이 삭제되면 자식이 먼저 죽은 다음에 
+     부모가 삭제될수 있도록 적용한다.
+     on delete cascade 를 마지막에 추가해야 한다.
+    :: ALTER TABLE shares ADD CONSTRAINT fk_shares_ssn foreign key(ssn) references customer(ssn) on delete cascade;

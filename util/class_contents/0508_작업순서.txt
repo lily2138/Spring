@@ -1,0 +1,11 @@
+작업순서
+1. 사용자적 입장에서 기능을 분석 ---> Usecase Diagram
+    DB Modeling
+2. 엔터티 추출, 기본키 지정 ----> 개념설계단계
+3. 일반속성 지정, 엔터티간의 관계를 설정
+   이때 다대다 관계는 Association Entity 로 해소시켜줘야한다.
+   ----> 논리설계 ----> 물리적 설계 (테이블의 실질적인 구성)
+
+    UI 설계 
+4. VO클래스 작성
+5. Business Logic Template 작성 

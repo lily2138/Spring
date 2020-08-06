@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="diceA" class="spring.service.dice.impl.DiceAImpl"></bean>
+	<bean id="diceB" class="spring.service.dice.impl.DiceBImpl"></bean>
+	<bean id="diceC" class="spring.service.dice.impl.DiceCImpl"></bean>
+
+<!-- player01 : User Definition Bean : 생성자 주입 -->
+<!-- value- 단순파라미터 주입   |  ref- 객체주입(객체참조) -->
+	<bean id="player01" class="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceA"/>
+	</bean>
+	
+<!-- player01 : User Definition Bean : 생성자 주입 -->
+	<bean id="player02" class="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceB"/>
+	</bean>
+	
+<!-- player03 : User Definition Bean : setter 주입 -->
+	<bean id="player03" class="spring.service.dice.play.Player02">
+		<property name="dice" ref="diceC"/>
+	</bean>
+	
+<!-- player04 : User Definition Bean : setter 주입 -->
+	<bean id="player04" class="spring.service.dice.play.Player02">
+		<property name="dice" ref="diceC"/>
+	</bean>
+	
+
+
+</beans>

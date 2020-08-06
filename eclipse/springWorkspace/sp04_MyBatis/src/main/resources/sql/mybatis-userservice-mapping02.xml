@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+1. 
+myBatis에서 조건에 해당하는 단순 파라미터값 받아올때는
+#{value}문법을 사용한다.
+2.
+myBatis에서 collection, 자바 라이브러리 클래스의 알리야스를 사용
+string, int, list, arraylist
+ -->
+ 
+<!-- SQL definition -->
+<mapper namespace="UserMapper02">
+ 	<select id="getUser01" resultType="user" parameterType="string">
+ 		SELECT
+ 		user_id AS userId,
+ 		user_name AS userName,
+ 		password AS password,
+ 		age AS age,
+ 		grade AS grade,
+ 		reg_date As regDate
+ 		FROM users
+ 		WHERE user_id LIKE #{value}
+ 	</select>
+
+ 	<select id="getUser02" resultType="user" parameterType="user">
+ 		SELECT
+ 		user_id AS userId,
+ 		user_name AS userName,
+ 		password AS password,
+ 		age AS age,
+ 		grade AS grade,
+ 		reg_date As regDate
+ 		FROM users
+ 		WHERE user_id LIKE #{userId}
+ 	</select>
+ 	
+ 	<select id="getUser03" resultType="user" parameterType="user">
+ 		SELECT
+ 		user_id AS userId,
+ 		user_name AS userName,
+ 		password AS password,
+ 		age AS age,
+ 		grade AS grade,
+ 		reg_date As regDate
+ 		FROM users
+ 		WHERE user_id LIKE #{value} '%'
+ 	</select>
+ 	
+ 	<select id="getUser04" resultType="user" parameterType="user">
+ 		SELECT
+ 		user_id AS userId,
+ 		user_name AS userName,
+ 		password AS password,
+ 		age AS age,
+ 		grade AS grade,
+ 		reg_date As regDate
+ 		FROM users
+ 		WHERE user_id LIKE '%' #{userId} 
+ 	</select>
+ 	
+</mapper>
