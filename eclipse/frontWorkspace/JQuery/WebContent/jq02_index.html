@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		background-color: #EAEAEA;
+	}
+	h1{
+		display:inline-block;
+		margin-top: 30px;
+		margin-left: 100px;
+	}
+	#menu{
+		height:50px;
+		background-color: gray;
+		color:white;
+		padding-left:110px;
+	}
+	#menu span{
+		display:inline-block;
+		margin-top:14px;
+		margin-left:30px;
+	}
+	#top_contents{
+		width:69%;
+		height:140px;
+		background-color: #CEF279;
+		border-radius: 16px;
+		margin:10px auto ;
+		padding:15px;
+	}
+	h2, #top_contents p{
+		color:white;
+		margin-left:30px;
+	}
+	#main_contents{
+		padding-left : 210px;
+		height:400px;
+		float:left;
+	}
+	
+	#vedio_content{
+		margin-top:30px;
+		width: 400px;
+		height:300px;
+		float:left;
+	}
+	
+	.content{
+		margin-left: 15px;
+		width: 190px;
+		float:left;
+	}
+	
+	#footer{
+		clear:both;
+		height:160px;
+		background-color: grey;
+		text-align: center;
+	}
+	
+	.foot_content{
+		width:30%;
+		float:left;
+		margin-left:3%
+	}
+	.foot_content h4{
+		color:white;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+	})
+</script>
+</head>
+<body>
+<h1>Encore극장</h1>
+<div id = "menu">
+	<span>최신DVD</span>
+	<span>DVD목록</span>
+	<span>웹리스트</span>
+</div>
+<div id="top_contents">
+	<h2>무공해 힐링 시네마</h2>
+	<p>무공해 힐링 시네마는 새로운 개념의 영화장르의 한가지를 말하는 것입니다. 지친 영혼을 위한 휴식을 주는 영화나 마음을 정화시키고 치유하는 힘을 가진 영화들....</p>
+</div>
+<div id= "main_contents">
+	<div id= "vedio_content">
+		<video width="400" height="300" controls="controls" src="07_media_img/BigBuck.theora.ogv" id="video"></video>
+	</div>
+	<div class="content">
+		<p>쿵푸팬더</p>
+		<img alt="" src="07_media_img/movie_image2.jpg" width="140px"  height="160px">
+		<button name="vplay" value="07_media_img/KungFuPanda_Sample.mp4">미리 보기</button>	<!--  -->
+		<button type="button">찜하기</button>
+	</div>
+	<div class="content">
+		<p>어벤져스</p>
+		<img alt="" src="07_media_img/TheAvengers2012Poster.jpg" width="140px" height="160px">
+		<button name="vplay" value="07_media_img/avengers.mp4">미리 보기</button>
+		<button type="button">찜하기</button>
+	</div>
+	<div class="content">
+		<p>빅벅</p>
+		<img alt="" src="07_media_img/BigBuck.jpg" width="140px"  height="160px">
+		<button name="vplay" value="07_media_img/BigBuck.theora.ogv">미리 보기</button>
+		<button type="button">찜하기</button>
+	</div>
+</div>
+<div id="footer">
+	<div class="foot_content">
+		<h4>About</h4>
+		<p>서울 남부터미널 엔코아아카데미</p>
+		<p>encore@academy.com</p>
+	</div>
+	<div class="foot_content">
+		<h4>개인정보 취급 방침</h4>
+		<a href="">개요</a><br>
+		<a href="">문의처</a>
+	</div>
+	<div class="foot_content">
+		<h4>공지사항</h4>
+		<a href="">오시는 길</a><br>
+		<a href="">오류시 문의사항</a>
+	</div>
+</div>
+</body>
+</html>

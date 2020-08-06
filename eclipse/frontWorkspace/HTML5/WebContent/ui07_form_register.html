@@ -1,0 +1,71 @@
+<!--
+모든 입력 폼을 하나로 묶는 역할을 하는 태그
+
+form태그이다.
+이 안에 넣을 수 있는 다양한 입력폼들을 한번 사용해보겠다
+
+속성
+1)필수 --- action='서버안에 있는 페이지'
+2)옵셔널 --- method 
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input type</title>
+<style type="text/css">
+/*아이디의 값이 wrap인 부분을 선택자로 지정*/
+	#wrap{
+		text-align: center;
+		margin-left : 5%;
+		margin-top : 5%;
+	}
+
+</style>
+
+</head>
+<body>
+<h2 align="center"> Register Input Form....</h2>
+
+<div id="wrap">
+	<form action="#">
+		<label>NAME</label>&nbsp;&nbsp;<input type="text" name="name" placeholder="이름입력"><br><br>
+		<label>ID</label>&nbsp;&nbsp;<input type="text" name="id" value="encore" readonly="readonly"><br><br>
+		<label>PASSWORD</label>&nbsp;&nbsp;<input type="password" name="password"><br><br>
+		
+		<input type="file" name="userFile"> <br><br>
+		BirthDate <input type="date" name="birthdate" id="birthdate"><br><br>
+		Gender <input type="radio" name="gender" value="M">남성
+			   <input type="radio" name="gender" value="F">여성<br><br>
+		Age<input type="number" name="age" required="required">  <!-- required는 값없으면 안돌아가게한다. -->
+		<br><br>
+		<strong>다음중 오늘 드시고 싶은 점심 메뉴를 선택하세요</strong> <br>
+		<select multiple="multiple">
+			<option>김밥
+			<option>돈까스
+			<option value="명란">알밥
+			<option>모밀국수
+		</select><br><br>
+		
+		<strong>다음중 집에서 길러봤던 애완동물을 선택하세요</strong> <br>
+		<input type="checkbox" name="pets" value="개">개
+		<input type="checkbox" name="pets" value="고양이">고양이
+		<input type="checkbox" name="pets" value="햄스터">햄스터
+		<input type="checkbox" name="pets" value="금붕어">금붕어
+		<input type="checkbox" name="pets" value="앵무새">앵무새
+		<br><br>
+		Introduction<br>
+		<textarea rows="6" cols="40">Hi....
+		</textarea>
+		<hr>
+		<br><br>
+		
+		<input type="submit" value="Sending">
+		<input type="reset" value="Clear">
+		<input type="button" value="Button">
+		
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 버튼 클릭하면 버튼의 타이틀을 resultView 영역에다가 출력.... html()
+		$('#createBtn').click(function(){
+			//$('#resultView').html($(this).val());	//form에있는 값 받아올 때는 무조건 val써야한다 >>> text(), html() 쓰면 안됨.
+			//$('#resultView').append($(this).val()+'<p>');
+			
+			//2. html()를 이용해서 좀전의 append()와 동일한 결과로 출력되도록
+			var result = $('#resultView').html();
+			$('#resultView').html(result + $(this).val() + '<p>');
+		})//click
+		
+		//3. select 폼에서 내가 선택한 Encore 지부가 resultView 계속해서 출력되도록.... html()를 이용하세요
+		$('#createSel').change(function(){
+			//var item = $('#createSel>option:selected').val();
+			var item = $(this).val();
+			var result = $('#resultView').html();
+			$('#resultView').html(result + item + '<p>');
+			
+		})
+	})
+</script>
+</head>
+<body>
+<input type="button" value="버튼 클릭시 동적으로 문자열 생성" id="createBtn">
+<select id="createSel">
+	<option>Encore Academy 남부지구</option>
+	<option>Encore Academy 서초지구</option>
+	<option>Encore Academy 판교지구</option>
+	<option>Encore Academy 가산디지털지구</option>
+	<option>Encore Academy 삼성지구</option>
+</select>
+
+<div id="resultView"></div>
+
+</body>
+</html>

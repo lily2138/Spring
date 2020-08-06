@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>work01</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>MainServlet</display-name>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>servlet.form.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MS</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginSuccess</display-name>
+    <servlet-name>LoginSuccess</servlet-name>
+    <servlet-class>servlet.form.LoginSuccess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginSuccess</servlet-name>
+    <url-pattern>/LoginSuccess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginError</display-name>
+    <servlet-name>LoginError</servlet-name>
+    <servlet-class>servlet.form.LoginError</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginError</servlet-name>
+    <url-pattern>/LoginError</url-pattern>
+  </servlet-mapping>
+</web-app>

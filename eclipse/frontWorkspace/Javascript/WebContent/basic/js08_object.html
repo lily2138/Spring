@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>literal, json</title>
+<script type="text/javascript">
+	var product = {
+		name : 'Encore',
+		price : '150000',
+		language : '한국어',
+		desc : '상세내역'
+			
+	};
+	//복합연산자
+	var output='';
+	for(var key in product){
+		output +='●' + key + ":" + product[key] + '\n';
+		
+	}
+	alert(output);
+</script>
+</head>
+<body>
+
+</body>
+</html>

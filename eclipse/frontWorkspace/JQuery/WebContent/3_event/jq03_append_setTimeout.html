@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.angel{ border: 2px solid black; 
+			width: 200px; height: 240px; }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('img').addClass('angel');
+		
+		//1. setTimeout() 함수를 이용해서 3초뒤에 맨 첫번째 이미지가 맨 뒤에 가도록(body..뒤에...append)
+/* 		 setTimeout(function() {
+			//$('body').append($('img:first'));
+			$('body').append($('img:eq(0)'));
+		}, 3000); 
+		 */
+		//2. setInterval().... 특정한 시간을 간격으로 매번 호출되는 함수....
+		 setInterval(function() {
+			//$('body').append($('img:eq(0)'));
+			$('img').first().appendTo('body');   
+		}, 1000); 
+	})
+</script>
+</head>
+<body>
+<img alt="" src="../image/1.JPG">
+<img alt="" src="../image/2.JPG">
+<img alt="" src="../image/3.JPG">
+</body>
+</html>
+
+
+
+

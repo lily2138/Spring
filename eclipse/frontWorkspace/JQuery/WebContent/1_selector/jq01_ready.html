@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- <script type="text/javascript" src="js/jquery-3.5.1.js"></script> -->
+
+<!-- 밑에는 cdn이다. 인터넷 안되면 못씀  -->
+<!-- <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+	/* window.onload = function(){
+		//
+	} */
+	
+	
+	//jQuery(document).ready(function(){     $ = JQuery
+	//$(document).ready(function(){
+	//jQuery(function(){
+	$(function(){
+		//alert("JQuery....");
+		$('#header').css('color','red');
+		$('.content').css('background','yellow').css('border','2px solid green');
+	})
+</script>
+</head>
+<body>
+	<h2 id="header">What is JQuery?</h2>
+	<p class="content">jQuery is a fast, small, and feature-rich JavaScript library.</p>
+</body>
+</html>

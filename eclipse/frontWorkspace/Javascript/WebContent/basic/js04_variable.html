@@ -1,0 +1,45 @@
+<!-- 
+	var fuc = function(){} : 익명함수 선언법
+	function name(){} : 선언적 함수 선언법
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+//1
+/*
+	var name="James"; //전역변수
+	function showName(){
+		var name = "Gosling"; //지역변수 showName(){} 함수 안에서만 사용
+		console.log(name); //?
+		
+	}
+	console.log(name);	//James
+	showName();	//Gosling */
+	
+	
+	
+//2.
+/*
+변수 선언부를(값은 제외한다) 함수 최상단으로 끌어올려서 선언함... 변수 호이스팅(hoisting)
+만약 함수 밖에서 선언된 변수라면 스크립트 선언부 최상단으로 끌어올려진다. 
+*/
+	doSomething();
+	
+	function doSomething(){	//선언적 함수 선언
+		alert("정의되어 있지 않음"+ some);  //2
+	
+		var some = "Good Day!!!";   //1. 변수 선언부를(값은 제외한다) 함수 최상단으로 끌어올려서 선언함... 변수 호이스팅(hoisting)
+		alert("정의되어 있음" + some);   //3
+		
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

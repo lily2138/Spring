@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 1.각각의 컬럼들의 비중을 동일하게 하려면.... -->
+<div class="row">
+	<div class="col-lg-4">Bootstrap is a free front-end framework for faster and easier web development</div>
+	<div class="col-lg-4">Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins</div>
+	<div class="col-lg-4">Bootstrap also gives you the ability to easily create responsive designs</div>
+</div>
+
+<hr>
+<!-- 
+가운데를 비우고 양쪽에 데이타를 유지하는 그리드 방법 
+offset-숫자 col-lg-4 
+ -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins</div>
+		<div class="col-lg-offset-4 col-lg-4">Bootstrap also gives you the ability to easily create responsive designs</div>
+	</div>
+</div>
+<hr>
+<!-- 
+Bootstrap은 반응형으로 사용할 때 html 요소들을 둘러싸는 기본 클래스로 container를 제공한다.
+container | container-fluid
+container : 고정폭을 지정해서 레이아웃을 만들 때 사용한다.
+container-fluid : 좌우로 꽉찬 레이아웃을 만든다.
+ -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2">Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins</div>
+		<div class="col-lg-offset-6 col-lg-4">Bootstrap also gives you the ability to easily create responsive designs Bootstrap is a free front-end framework for faster and easier web development Bootstrap is a free front-end framework for faster and easier web development</div>
+	</div>
+</div>
+
+</body>
+</html>

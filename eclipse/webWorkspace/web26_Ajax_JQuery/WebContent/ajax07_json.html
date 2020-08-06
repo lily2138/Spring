@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#jsonBtn').click(function(){
+			$.ajax({
+				type:'post',
+				url:'JsonAjax',
+				dataType:'json',
+				
+				success:function(data){
+					//alert(data);
+					//$('#resultView').html(data.name+" "+data.addr);
+					$('#resultView').html(data.banana.maker+", "+data.banana.price);
+				}//callback
+			})
+		})
+	})
+</script>
+</head>
+<body>
+	<input type="button" value="json-Btn" id="jsonBtn">
+	<span id="resultView"></span>
+</body>
+</html>

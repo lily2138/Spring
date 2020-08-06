@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저로 출력하는 여러가지 형식과 조건문, 기타 등등</title>
+<script type="text/javascript">
+//1. write() 함수는 인자값으로 받은 내용을 브라우저 화면으로 출력하는 기능....
+document.write(50+'<br>');
+document.write(50+60+'<br>');
+document.write(eval('50+60') + '<br>');	//문자열을 계산하려면.... eval()
+document.write(eval('50.6+60') + '<br>');	//실수계산
+document.write(eval('56.6+19') + '<br>');
+document.write(eval('56.6'+'19') + '<br>');  //안됨
+document.write(parseFloat('56.6')+parseInt('19') + '<br>'); //된다
+document.write(parseFloat('56.6')+parseInt('19.6') + '<br>'); //된다
+
+
+//2. 팝업창(대화창)종류와 띄우는 방법 :: alert(), confirm(), prompt()
+/*
+ alert - 이걸로 실행여부 확인....
+ confirm - 중요한 처리를 앞두고(삭제, 수정) 한번 더 확인할 필요가 있을 때 띄우는 창
+ prompt - 데이타를 입력받아서 처리할 때 사용 
+ */
+ 
+ 
+ /* 
+var ans = confirm("정말로 탈퇴하시겠습니까?"); //확인과 취소버튼이 나온다. 확인은 true 취소는 false값 return
+//if(ans) document.write("삭제되셨습니다....<br>");
+if(ans==1) document.write("삭제되셨습니다....<br>");
+else document.write("삭제처리를 취소하였습니다....<br>");
+ */
+
+ 
+ if(confirm("정말로 탈퇴하시겠습니까?"))
+	 document.write("삭제되셨습니다....<br>");
+ else document.write("삭제처리를 취소하였습니다....<br>");
+ 
+ 
+var name = prompt("당신의 차 번호를 입력하세요....");
+document.write(name);
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

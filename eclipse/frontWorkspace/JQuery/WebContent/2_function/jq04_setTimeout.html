@@ -1,0 +1,54 @@
+<!-- 
+value   |   val()
+addClass()
+filter()
+first()
+last()
+setTimeout()
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. select 태그중에서 선택한 값...이름....name변수에 할당....alert(name)
+		/* var name = $('select>option:selected').val();
+		alert(name); */
+		
+		//2.setTimeout()을 사용해서 일정 시간이후에 로직이 돌아가도록....
+		setTimeout(function() {
+			//3초뒤에 이 안에 코드가 동작한다....
+			var name = $('select>option:selected').val();
+			alert(name);
+		}, 3000);
+		
+		
+		//3.select 폼에서 내가 선택한 이름이.... 5초 지난후 아래에 추가한 입력박스에 출력되도록....setTimeout()을 사용
+		setTimeout(function() {
+			//3초뒤에 이 안에 코드가 동작한다....
+			var name = $('select>option:selected').val();
+			$('input[name=result]').val(name);
+		}, 5000);
+		
+	})
+</script>
+</head>
+<body>
+	<select multiple="multiple">
+		<option>재영</option>
+		<option>호현</option>
+		<option>치종</option>
+		<option>재현</option>
+	</select><br><br>
+	
+	<!-- 폼 추가.... -->
+	선택한 이름 출력 :: <input type="text" name="result" size="16">
+</body>
+</html>

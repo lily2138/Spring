@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function showData() {
+		//닉네임으로 입력한 값을 변수에 받아온다.document.Form이름.컴포넌트이름.value
+		var nickName = document.loginFrm.nick.value; 
+		alert(nickName+" Hello~~~~");
+		document.loginFrm.nick.value = "";//clear
+		document.loginFrm.nick.focus();
+	}
+	
+	function showHobby() {
+		var hobby = document.loginFrm.hobby.value; 
+		alert(hobby+" Hello~~~~");
+		document.loginFrm.hobby.value = "";//clear
+		document.loginFrm.hobby.focus();
+	}
+</script>
+</head>
+<body>
+	<form name="loginFrm">	
+	닉네임 <input type="text" name="nick">
+	<input type="button" value="닉네임보기" onclick="showData()"><br/>
+	취미<input type="text" name="hobby">
+	<input type="button" value="취미보기" onclick="showHobby()">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

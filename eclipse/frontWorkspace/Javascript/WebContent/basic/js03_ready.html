@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복합 연산자</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	
+	$(document).ready(function() {
+		var list = ''; //데이타 타입이 동적으로 할당
+		//복합연산자 사용
+		list += '<ul>';
+		list +=   '<li>Hello</li>';
+		list +=   '<li>JavaScript!!!</li>';
+		list += '</ul>';
+		
+		//li변수안의 있는 내용을 웹 브라우저에 출력.... body태그 아래에 붙이면 된다.
+		document.body.innerHTML = list;
+	});
+	
+	$(document).ready(function(){
+		alert('aaa');
+	});
+	
+	$(document).ready(function(){
+		alert('bbb');
+	});
+	
+
+</script>
+</head>
+<body>
+<h2>======OnLoad======</h2>
+</body>
+</html>

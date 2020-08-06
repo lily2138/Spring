@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>addClass() :: html코드와 css코드를 분리</title>
+<style type="text/css">
+	.totalView{
+		color: orange;
+	}
+	.divP{
+		color:red;
+	}
+	.pfirst{
+		background-color: gray;
+	}
+	.paragraph{
+		border:1px solid green;
+	}
+	.statement{
+		border:1px solid blue;
+	}
+	.item{
+		border:1px solid blue;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){
+	//h1, p 태그를 한꺼번에 선택자로 지정...열거형
+	$('h1, p').addClass('totalView');
+	
+	//div 태그의 자식인 태그 p태그를 선택자로 지정....color red
+	$('div p').addClass('divP');
+	
+	//3개의 p태그 중에서... 첫번째 p태그를 선택자로 지정.... 배경색을 grey
+	//$('p:first').css('background','yellow');
+	//$('p').first().css('background','yellow');
+	//$('p').last().css('background','yellow');
+	$('p:eq(0)').addClass('pfirst');
+	
+	//아래 두개는 다르다. 1번째는 p태그의 id값을 말하는 것이구, 2번째는 p태그의 자식값들 중에 id값을 가르친다. 
+	$('p#paragraph').addClass('paragraph');
+	//$('p #paragraph').css('border', '1px solid green');		//p태그에 자식은 없으므로 아무것도 나타나지 않는다.
+	$('p.statement').addClass('statement');
+	$('.item').addClass('item');
+	
+	
+})
+</script>
+</head>
+<body>
+	<h1 id="header">What is JQuery?</h1>
+	<div>
+		<p>jQuery is a fast, small, and feature-rich JavaScript library.</p>
+	</div>
+	<p id="paragraph">Be sure to test web pages that use jQuery in all the browsers you want to support.</p>
+	<p class="statement">Each commit to the Github repo generates a work-in-progress version of the code that we update on the jQuery CDN.</p>
+	<p class="statement item">Each commit to the Github repo generates a work-in-progress version of the code that we update on the jQuery CDN.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#send').click(function() {
+			$.ajax({
+				type:'post',
+				url:"http://localhost:8888/member.xml",
+				dateType : "xml", //응답될때의 데이타 타입,, xml, text, json
+				
+				success:function(result){
+					var str ='';
+					$(result).find('member').each(function(index,item){
+						var id = $(this).find('id').text();
+						var name = $(this).find('name').text();
+						var addr = $(this).find('addr').text();
+						
+						str +='<tr>';
+						str +='<td>' + id + '</td>';
+						str +='<td>' + name + '</td>';
+						str +='<td>' + addr + '</td>';
+						str +='</tr>';
+						
+					});//each
+					
+					//기존데이타 지우고 붙이기
+					$('#table tr:gt(0)').remove();
+					
+					$('#table').append(str);
+				},//callback
+			
+				error: function(err){
+					alert("====오류발생===="+err);
+				}//error
+			})//ajax
+		})//click
+	})//ready
+
+</script>
+</head>
+<body>
+<h2>========= 공공데이타 가져오기 =========</h2>
+<a href='#' id="send">XML 데이타 읽어들이기</a>
+<p></p>
+<table border="2" id="table" width="60%">
+	<tr>
+		<th>아이디</th><th>이름</th><th>주소</th>
+	</tr>
+	<!-- 출력 -->
+</table>
+</body>
+</html>

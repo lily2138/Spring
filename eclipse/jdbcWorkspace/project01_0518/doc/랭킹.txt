@@ -1,0 +1,14 @@
+SELECT B.*, COUNT(*) cnt,
+ROW_NUMBER() OVER(ORDER BY A.attraction_no desc) AS RANKING
+FROM uselist A 
+INNER JOIN attraction B ON A.attraction_no = B.no
+GROUP BY A.attraction_no
+ORDER BY cnt desc;
+
+SELECT C.age, B.*, COUNT(C.age) cnt
+FROM uselist A
+INNER JOIN customer C ON A.customer_no = C.no 
+INNER JOIN Attraction B ON A.attraction_no =B.no
+WHERE C.age >= 10 and C.age <20
+GROUP BY A.customer_no
+ORDER BY cnt desc;

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+	h2{
+		color:orange;
+		font-style: oblique;
+		font-weight: bold;
+		font-size:25pt;
+	}
+	p{
+		color : green;
+		font-size:25pt;
+		font-family: sans-serif;
+		
+	}

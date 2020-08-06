@@ -1,0 +1,39 @@
+	@Override
+	public void fixAttraction(int attrNo, String repairDate) throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = getConnect();
+			conn.setAutoCommit(false); // 시작
+			String query = "UPDATE attraction SET repairdate = ? WHERE no = ?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, repairDate);
+			ps.setInt(2, attrNo);
+			ps.executeUpdate();
+			conn.commit();
+		} catch (Exception e) {
+			System.out.println("===== 점검날짜 갱신 실패 ======");
+			conn.rollback();
+		} finally {
+			closeAll(ps, conn);
+		}
+	}
+
+
+@Override
+	public ArrayList<Attraction> getAllAttreaction() throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ArrayList<Attraction> arr = new ArrayList<>();
+
+		conn = getConnect();
+		String query = "SELECT * FROM attraction";
+		ps = conn.prepareStatement(query);
+		rs = ps.executeQuery();
+		while (rs.next()) {
+			arr.add(new Attraction(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5)));
+		}
+		closeAll(rs, ps, conn);
+		return arr;
+	}

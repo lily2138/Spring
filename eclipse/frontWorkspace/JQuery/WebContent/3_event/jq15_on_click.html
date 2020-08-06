@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{ border-radius: 10px;
+		 border : 1px solid pink; }
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		/* $('div').on('click',function(){
+			//해당 영역을 복제해서 body에 붙인다....
+			$(this).clone().appendTo('body');	//append() 사용안됨
+		
+		}) */	
+		$('div').one('click',function(){
+			//해당 영역을 복제해서 body에 붙인다....
+			$(this).clone().appendTo('body');	//append() 사용안됨
+		
+		})
+	})
+</script>
+</head>
+<body>
+	<div>
+		<h1>$(selector).on()</h1>
+		<p>on() 함수 사용하기 :: 클릭함수와 동일하게 사용....</p>
+	
+	</div>
+</body>
+</html>

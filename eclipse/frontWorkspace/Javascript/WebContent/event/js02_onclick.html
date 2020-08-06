@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function test1() {
+		document.write("연희 안녕??");
+		alert("연희 안녕??");
+	}
+	function test2(str, name){
+		var data = test3(name);
+		alert(str+data);
+	}
+	
+	function test3(message){
+		return message+", 짱짱!!";
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="test1" onclick="test1()">
+	<input type="button" value="test2" onclick="test2('우유빛깔','김연희')">
+</body>
+</html>

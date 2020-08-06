@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#frm').submit(function(){
+			/*
+			1. id, name 폼의 공란을 체크.... 공백일 때 alert창 띄우고... 포커스 맞추고, 페이지 안넘어가게
+			2. checkbox에 하나이상의 값을 놓도록.... 공백일 때 alert창 띄우고
+			3. 하나이상의 값이 입력되면.... each 사용해서 alert로 출력
+			4. confirm 창.... "3개의 취미를 선택하셨습니다... 전송하시겠습니까?"...전송/미전송
+			*/
+
+			if($('#id').val()==""){
+				alert("아이디를 입력하세요.");
+				$('#id').focus();
+				return false;
+			}
+			if($('#name').val()==""){
+				alert("이름을 입력하세요.");
+				$('#name').focus();
+				return false;
+			}
+			
+			var hobbyArr=$('input[name=hobby]:checked'); 	//배열로 리턴된다.
+			//alert(hobbyArr.length);
+			
+			var text="";
+			if(hobbyArr.length==0){
+				alert("하나이상의 취미를 선택하세요");
+				return false;
+			}else{
+				$.each(hobbyArr,function(index,item){
+					text += item.value+" ";
+				})
+				alert(text);
+			
+				return confirm("선택하신"+hobbyArr.length+" 개의 취미를 전송하시겠습니까");
+			}
+		})
+	})
+</script>
+</head>
+<body>
+<form action="06_result.jsp" id="frm">
+	ID <input type="text" name="id" id="id"><p>
+	NAME <input type="text" name="name" id="name"><p><p>
+	<strong>당신의 취미를 고르세요...</strong><p>
+	<input type="checkbox" name="hobby" value="walking">Walking<br>
+	<input type="checkbox" name="hobby" value="베이비시터">베이비시터<br>
+	<input type="checkbox" name="hobby" value="독서">독서<br>
+	<input type="checkbox" name="hobby" value="헬스">헬스<br>
+	<input type="checkbox" name="hobby" value="코딩">코딩<br>
+	
+	<input type="submit" value="SEND">
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ProductMapper">
+
+	<insert id="addProduct" parameterType="myProduct" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO myproduct(name, maker, price)
+	VALUES(#{name}, #{maker}, #{price})
+	</insert>
+	
+	<!-- like 연산자와 % 사용 -->
+	<select id="findByProductName" parameterType="string" resultType="myProduct">
+		SELECT
+		id, name, maker, price
+		FROM myproduct
+		WHERE name LIKE '%${value}%'   <!-- '%'${value}'%' 쓰지말것 에러남-->
+	</select>
+	
+	<select id="findProducts" resultType="myProduct">
+		SELECT
+		id, name, maker, price
+		FROM myproduct
+	</select>
+</mapper>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#ajaxBtn').click(function(){
+			//alert("ajax....");
+			$.ajax({
+				//alert("ajax2....") //이거안된당
+				type:'post',
+				url:'HelloAjaxServlet',
+				data:'name=encoreAjax',
+				dataType:'text',
+				
+				success:function(data){
+					alert(data);
+				},//callback
+				
+				error: function(){
+					alert('응답시간이 지연....Error처리함!!!!');
+				},
+				timeout:1000	//1초동안 서버로부터 응답이 없으면 에러발생시킴....(응답 대기시간 지정)
+			})//ajax
+		})//click
+	});//ready
+</script>
+</head>
+<body>
+	<input type="button" id="ajaxBtn" value="ajaxBtn">
+</body>
+</html>

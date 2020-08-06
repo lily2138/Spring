@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Box model</title>
+<Style>
+	.div1{
+		width:300px;
+		height:100px;
+		border: 1px solid red;
+	}
+	
+	.div2{
+		width: 300px;
+		height: 100px;
+		border: 1px solid red;
+		padding : 50px;
+		
+		/* box-sizing: border-box; */ /* 원래 사이즈로 돌아감 */
+		box-sizing: content-box;
+		
+	}
+</Style>
+</head>
+<body>
+<div class="div1">The Div is smaller....(width 300px height 100px)</div>
+<br>
+<div class="div2">The Div is bigger....(width 300px height 100px)</div>
+<br>
+</body>
+</html>

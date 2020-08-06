@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+1. 
+myBatis에서 조건에 해당하는 단순 파라미터값 받아올때는
+#{value}문법을 사용한다.
+2.
+myBatis에서 collection, 자바 라이브러리 클래스의 알리야스를 사용
+string, int, list, arraylist
+ -->
+ 
+<!-- SQL definition -->
+<mapper namespace="UserMapper01">
+ 	<!-- id로 user를 찾는거기 때문에 parameterType 값이 들어가야 한다.  -->
+ 	<select id="getUser" resultType="user" parameterType="string">
+ 		SELECT
+ 		user_id AS userId,
+ 		user_name AS userName,
+ 		password AS password,
+ 		age AS age,
+ 		grade AS grade,
+ 		reg_date As regDate
+ 		FROM users
+ 		WHERE user_id=#{value}
+ 	</select>
+ 	
+ 	<!-- parametertype에 vo가 들어오면 #{value}가 아니라 getter문법(#{userID})을 쓴다 -->
+ 	<select id="findUserId" resultType="string" parameterType="user">
+ 		SELECT
+ 		user_name
+ 		FROM users
+ 		WHERE user_id=#{userId} and password=#{password}
+ 	</select>
+	
+</mapper>

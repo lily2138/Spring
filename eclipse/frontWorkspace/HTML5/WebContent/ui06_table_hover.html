@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>table에 hover효과 주기</title>
+<style>
+	table{
+		width: 60%;
+		border-top: 1px solid red;
+		border-bottom: 1px solid red;
+		
+	}
+	/* 직계가 아니라 후손(손자)*/
+	table th{
+		background-color: pink;
+		color: #fff;
+		border-bottom: 1px solid pink;
+	}
+	/* tr의 직계자식인 td를 선택자로 지정 
+		border의 하단을 2px 점선 분홍색으로 스타일...
+	*/
+	tr>td{
+		border-bottom: 2px dotted pink;
+		text-align: center;
+	}
+	
+	/* Table의 자식인 tr을 선택자로 지정 */
+	table tr:hover{
+		background-color: yellow;
+	}
+</style>
+</head>
+<body>
+	<h2 align="center">Table에 Hover 효과</h2>
+	<table align="center">
+		<tr>
+			<th>이름</th><th>주소</th><th>직업</th>
+		</tr>
+		<tr>
+			<td>이태오</td><td>여의도</td><td>기획자</td>
+		</tr>
+		<tr>
+			<td>지선우</td><td>고산시</td><td>의사</td>
+		</tr>
+		<tr>
+			<td>김선생</td><td>고산시</td><td>의사</td>
+		</tr>
+		
+	</table>
+</body>
+</html>

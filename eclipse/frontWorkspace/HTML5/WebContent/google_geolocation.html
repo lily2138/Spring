@@ -1,0 +1,115 @@
+<!--  
+Geolocation
+Geolocation API는 프로그램을 실행하는 디바이스의 위치 정보를 얻기 위한 Javascript API 다. 
+메서드 3개로 이뤄진 간단한 API이다. 
+
+Geolocation API와 관련된 메서드는 모두 window.navigator 객체에 정의 되어 있음. 
+
+1.
+getCurrentPosition() : 디바이스의 현재 위치를 한번만 얻기 위한 메서드.
+형식 : getCurrentPosition(successCallback, errorCallback, options) 
+      - successCallback :  위치정보 사용 가능 시 호출
+      - errorCallback : 에러 시 호출
+      - options : 데이터 수집 목적으로 제공됨
+		현재 위치 정보를 비동기로 확인한 다음 처리 결과를 인수로 하여 successCallBack을 한번만 호출.
+		에러가 발생했을 때는 상세한 에러 정보를 인수로 하여 errorCallback을 호출
+
+위치 정보 객체의 속성 
+coords .
+latitude     : 위도  
+longitude   : 경도 
+altitude     : 표고(이용할 수없을 때는 null)
+accuracy   : 위도, 경도의 오차(단위와 미터) 
+altitudeAccuracy : 표고의 오차(단위와 미터)
+heading : 디바이스의 진행 방향. 북쪽을 기준으로 시계 방향 각도로 나타냄(이용불가 시 null)
+speed : 디바이스의 진행 속도(미터/초) 이용할 수 없을 때는 null
+timestamp : 위치 정보를 얻은 시각(1970/1/1 부터의 미리 세컨드)
+
+2.
+watchPostion() : 현재 위치를 계속 추적할 수 있고, 이 처리는 clearWatch()메서드를 호출하여 확인을 종료할 때까지 계속 된다. 
+형식 : watchPosition(successCallback, errorCallback, option)
+	  이 메서드를 호출하면 현재 위치 정보를 비동기로 확인하고 처리 결과를 인수로 지정한 콜백메서드를 호출한다. 그 후에도 콜백 메서드는 디바이스가 위치가 변경되었다고 판단할 때마다 계속 호출한다.  
+         메서드의 반환값은 clearWatch()에 전달 할 수 있는 정수 
+         
+3. 
+clearWatch(watchId) : watchPosition()가 반환한 정숫값을 인수로 하여 watchPosition()를 종료. 
+                               위치얻기 업데이트의 중단.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css"
+		rel="stylesheet" type="text/css"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+var infoWindow=new google.maps.InfoWindow();
+$(document).ready(function(){
+		initLocation();
+});
+function initLocation(){
+	var myLoc=getLocation();
+	if(myLoc==null)
+		return false;	
+	myLocation(myLoc);
+}
+function getLocation(){
+	if(navigator.geolocation){
+		return navigator.geolocation;
+	}
+
+	document.getElementById("disp").innerHTML="위치 정보 지원 안됨";
+	return null;
+}
+function myLocation(myLoc){
+	myLoc.getCurrentPosition(function(position){
+		var lat=position.coords.latitude;
+		var lon=position.coords.longitude;
+		var initLoc=new google.maps.LatLng(lat,lon);
+		var map=new google.maps.Map(
+				document.getElementById("map_canvas"),
+				{
+					zoom:16,
+					mapTypeId:google.maps.MapTypeId.ROADMAP
+				}
+		);
+		map.setCenter(initLoc);
+		infoWindow.setContent("현재 내 위치예요!!");//말풍선
+		infoWindow.setPosition(initLoc);
+		infoWindow.open(map);
+	});
+}
+</script>
+</head>
+<body>
+<h2 id="disp">구글맵보기</h2>
+<div id="map_canvas" style="width:100%;height:100%;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

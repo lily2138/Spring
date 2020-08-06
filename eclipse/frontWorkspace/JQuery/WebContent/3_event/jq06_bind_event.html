@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bind() : 여러개의 이벤트를 바인하는 기능 :: mouseenter + mouseleave </title>
+<style type="text/css">
+	.reverse{ background: blue; color: white; }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('h2').bind({
+			mouseenter:function() {
+				$(this).addClass('reverse');				
+			},
+			mouseleave:function(){
+				$(this).removeClass('reverse');
+			}
+			
+		})//bind()
+		
+	})
+</script>
+</head>
+<body>
+	<h2>오늘은 화요일 입니다.</h2>
+	<h2>오후 늦게 비가온다는 예보가 있습니다.</h2>
+	<h2>퇴근하실 때 비가올 수 있습니다... 우산들 가지고 오셨나요???</h2>
+</body>
+</html>

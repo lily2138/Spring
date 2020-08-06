@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+조건
+1. 아이디가 3자리 미만이면 "아이디는 3자 이상이어야 합니다..."라는 메세지 띄우고 id.length
+2. 아이디가 3자리 이상이면 : 사용가능 아이디 | 사용불가 아이디
+
+ -->
+<script type="text/javascript">
+	var xhr;
+	var resultSpan;
+	function startRequest(){
+		var id = document.getElementById("id").value;
+		resultSpan = document.getElementById("idCheckView")
+		if(id.length<3){
+			resultSpan.innerHTML = "<font color=pink size=4>아이디는 3자 이상이어야 합니다...</font>";
+			return;
+		}
+		//비동기시작....
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		xhr.open("post", "idCheck.do");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+		xhr.send("id="+id); 
+	}
+ 	function callback(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var flag = xhr.responseText
+				resultSpan = document.getElementById("idCheckView")
+				if(flag=="true"){
+					resultSpan.innerHTML = "<font color=pink size=4>사용불가</font>";
+				}else{
+					resultSpan.innerHTML = "<font color=green size=4>사용가능</font>";
+				}
+
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h3>회원가입</h3>
+
+<form action="register.do" name="registerForm" >
+	ID : <input type="text" name="id" id="id" required="required" onkeyup="startRequest()">
+	<span id = "idCheckView"></span><br><br>
+	PASSWORD : <input type="password" name="password" required="required"><br><br>
+	NAME : <input type="text" name="name" required="required"><br><br>
+	ADDRESS : <input type="text" name="address" required="required"><br><br>
+	
+	<input type="submit" value="member register">
+</form>
+</body>
+</html>

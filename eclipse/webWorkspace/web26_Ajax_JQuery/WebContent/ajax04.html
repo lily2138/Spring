@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/* 
+	1. select 중에서 특정한 option을 선택하면 선택한 값을 alert로 출력
+		선택하지 않으면 "~~~~선택하세요" alert 출력
+		::
+	2. jqueryAjax 부분
+		- 선수의 이름을 선택하면 서버로 요청을 보냄
+		- 선수이름 옆에 그 선수가 사는 주소가 특정 영역에 출력되도록 로직을 작성
+	*/
+
+	$(function() {
+		$('#player').change(function(){	//click이 아니라 change
+			if($(this).val()==""){	//어떤 선수도 선택하지 않았다면
+				alert("한명의 선수는 선택하셔야 합니다");
+				return;
+			}
+			//비동기연결...(ajax연결....)
+			$.ajax({
+				//요청
+				type:"post",
+				url:"AddressAjax", 
+				data:"name="+$(this).val(),
+				
+				//응답
+				success:function(data){
+					$('#resultView').html(data);
+				}//callback
+			})//ajax
+		})//change
+	})
+</script>
+</head>
+<body>
+<select id = "player">
+	<option value=""> ====== 야구 선수들 ====== </option>
+	<option>이용규</option>
+	<option>김태균</option>
+	<option>류현진</option>
+	<option>푸이그</option>
+	<option>유리베</option>
+	<option>커쇼</option>
+</select>
+<span id = "resultView"></span>
+</body>
+</html>

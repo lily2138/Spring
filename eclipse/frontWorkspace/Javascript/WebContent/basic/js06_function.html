@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 선언하는 2가지 방법 :: 익명함수 | 선언적 함수 선언</title>
+<script>
+	/* func(); */
+	
+	//1. 익명함수 재정의
+	/* var func = function() {
+		alert("func A....");
+	}
+	var func = function() {
+		alert("func B....");
+	}
+	func(); */
+	
+	//2. 선언적함수 재정의
+/* 	func();
+	function func(){
+		alert("func A....");
+	}
+	function func(){
+		alert("func B....");
+	} */
+	
+	//3. 익명함수  + 선언적함수
+	
+	var func = function() {
+		alert("func A....");	//2. 나중에 생성....
+	}
+	function func(){
+		alert("func B....");	//1. 이게 먼저 생성
+	}
+	func();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

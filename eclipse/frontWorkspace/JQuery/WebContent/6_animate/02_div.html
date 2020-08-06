@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		position: relative;
+		width: 60px;
+		height:60px;
+		border: 2px solid green;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		/* $('div').click(function(){
+			//1. 각각의 div 해당 영역이 오른쪽으로 500 이동...천천히...
+			$(this).animate({
+				left:500
+			},'slow');
+		}) */
+		
+		//1.hover()를 이용해서 오른편 500갔다가, 다시 원래 지점으로 돌아오도록 로직을 작성
+		/* $('div').hover(function(){
+			$(this).animate({
+				left:500
+			},'slow');
+		},function(){
+			$(this).animate({
+				left:0
+			},'fast');
+		}) */
+		
+		$('div').click(function(){
+			$(this).animate({
+				width:'+=80',
+				height:'+=80'
+			}, 'slow');
+		})
+		
+	})
+</script>
+</head>
+<body>
+<div></div><div></div>
+<div></div><div></div>
+<div></div><div></div>
+</body>
+</html>

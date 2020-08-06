@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function selectLine(){
+		//alert("^^");   >>>확인용
+		//var sub = document.subwayFrm.line;
+		var sub = document.getElementById("sline");
+		if(sub.value==""){
+			alert("지하철 노선을 선택하세요");
+		}
+		alert(sub.value+"노선을 선택!!!!");
+		
+	}
+</script>
+</head>
+<body>
+	<form name="subwayFrm" id="frm">
+		<select name="line" onchange="selectLine()" id="sline"> <!-- 중요하다onchange!!! onclick은 안된다 -->
+			<option value="">----호선----</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+		</select>
+	</form>
+</body>
+</html>

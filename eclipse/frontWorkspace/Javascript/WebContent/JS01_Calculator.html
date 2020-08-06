@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#calculator{
+	border : 1px solid black;
+	height : 500px;
+	width:300px;
+	margin: 100px auto;
+	text-align: center;
+}
+button{
+	width:60px;
+	height:60px;
+	margin : 4px;
+	font-size: 15pt;
+}
+#write{
+	width:260px;
+	height:24px;
+	margin :6px;
+	
+}
+
+#result{
+	width:260px;
+}
+</style>
+
+<script>
+	
+</script>
+</head>
+<body>
+<div id="calculator">
+	<input type="text" id="formula" placeholder="0.0"/>
+	<div>
+		<button type="button" value="7">7</button>
+		<button type="button" value="8">8</button>
+		<button type="button" value="9">9</button>
+		<button type="button" value="+">+</button>
+	</div>
+	<div>
+		<button type="button" value="4">4</button>
+		<button type="button" value="5">5</button>
+		<button type="button" value="6">6</button>
+		<button type="button" value="-">-</button>
+	</div>
+	<div>
+		<button type="button" value="1">1</button>
+		<button type="button" value="2">2</button>
+		<button type="button" value="3">3</button>
+		<button type="button" value="*">*</button>
+	</div>
+	<div>
+		<button type="button" value="0">1</button>
+		<button type="button" value="CE">CE</button>
+		<button type="button" value="=">=</button>
+		<button type="button" value="/">/</button>
+	</div>
+	<br>
+	결과이력::<br>
+	<p id="result"></p>
+</div>
+</body>
+</html>

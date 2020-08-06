@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 나이를 문자로 입력했을때.... 숫자로 입력하라는 메세지 띄우고 return false시킨다... */
+	function checkData(){
+		var f = document.frm;
+		if(isNaN(f.age.value)){
+			alert("나이는 숫자입력바랍니다");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<h2 align = "center"><strong>Register Cafe Member Form...</strong></h2>
+<form action="EntranceServlet" method="post" onsubmit="return checkData()">
+이 름<input type="text" name="name" required="required"><br>
+나 이<input type="text" name="age" required="required"><br>
+주 소<input type="text" name="addr" required="required"><br>
+<input type="submit" value="입장하기">
+</form>
+</body>
+</html>

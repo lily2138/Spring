@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#wrap{
+		width:600px;
+		margin:0 auto;
+	}
+	
+	h1{
+		font-family: 궁서;
+	}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+	<h1>Encore Theater</h1>
+	<h1>쿵푸팬더 예매</h1>
+	
+	<img src="img/panda_poster.jpg" width="400" height="500"><br><br>
+	
+	
+	<div class='contents'>
+		<span>상영관</span>
+		<select name="menu">
+			<option value="CGV">CGV</option>
+			<option value="LOTTE">LOTTE</option>
+			<option value="MEGA">MEGA</option>
+		</select>
+		<span>날짜 선택</span>
+		<input type="date" name="date" id="date"><br><br>
+		<fieldset>
+			<legend>시간선택</legend>
+			<input type="radio" name="time" value="8">08:30
+			<input type="radio" name="time" value="11">11:00
+			<input type="radio" name="time" value="14">14:20
+			<input type="radio" name="time" value="17">17:25
+			<input type="radio" name="time" value="20">20:10
+			<input type="radio" name="time" value="23">23:05
+		</fieldset><br>
+		
+		요금   <span><strike>W 9000</strike></span> <span><U>W 5000</U></span> <br><br>
+		
+		인원 <input type="text" name="people" placeholder="0"><br><br>
+		금액 <input type="text" name="money" placeholder="0"><br><br>
+		
+		옵션
+		<fieldset>
+			<input type="checkbox" name="options" value="팝콘">팝콘
+			<input type="checkbox" name="options" value="콜라">콜라
+		</fieldset>
+	</div>
+</div>
+
+</body>
+</html>

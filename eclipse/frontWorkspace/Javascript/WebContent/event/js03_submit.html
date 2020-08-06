@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function entrance(){
+		var flag=confirm("성인 사이트 입니다..정말 입장하시겠습니까?");//yes, no중 하나만 선택
+		return flag;
+	}
+</script>
+</head>
+<body>
+	<form action="adult.html"  onsubmit="return entrance()">
+		<input type="submit" value="성인 사이트 입장">
+	</form>
+</body>
+</html>

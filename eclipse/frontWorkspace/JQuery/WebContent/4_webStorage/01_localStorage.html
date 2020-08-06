@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//저장
+		$('#saveBtn').click(function(){
+			if(!window.localStorage){
+				alert("현재 브라우저는 로컬스토리지를 지원하지 않습니다");
+				return false;
+			}
+			//로컬스토리지 저장하는 3가지 방법
+			localStorage.setItem("key1","안녕"); //함수이용
+			localStorage.key2 = "HI";
+			localStorage["key3"] = "HELLO";
+			
+		})
+		
+		//삭제
+		$('#deleteBtn').click(function(){
+			localStorage.removeItem("key1");
+		})
+		
+		//전체삭제
+		$('#deleteAllBtn').click(function(){
+			localStorage.clear();	//localStorage에 있는 모든 내용을 삭제.... 주의해서 사용하자
+		})	
+	
+		//내용보기
+		$('#showBtn').click(function(){
+			alert(localStorage.getItem("key1")+","+localStorage.key2+","+localStorage["key3"]);
+		})
+	
+	
+	})
+</script>
+</head>
+<body>
+<button id="saveBtn">저장</button>
+<button id="deleteBtn">삭제</button>
+<button id="deleteAllBtn">전체삭제</button>
+<button id="showBtn">내용보기</button>
+</body>
+</html>

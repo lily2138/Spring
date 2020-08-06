@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> unbind() :: 이벤트를 해제시키는 함수 </title>
+<style type="text/css">
+	.reverse{ background: blue; color: white; }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 첫번째 h2태그를 클릭하면.... 클릭한 부분의 내용들이 red로 변하도록 선택자와 함수를 연결....
+		/* $('h2:first').click(function() {
+			$(this).html('<font color = red>CLICK</font>');
+			
+			alert("click() Calling....");
+			$(this).unbind();    //이걸 해줘야 클릭해도 더이상 alert창이 안뜸. 
+		}) //click() */
+		
+		$('h2:first').bind('click', function() {
+			$(this).html('<font color = red>CLICK</font>');
+			
+			alert("click() Calling....");
+			$(this).unbind(); 
+		}) //click()
+		
+	})
+</script>
+</head>
+<body>
+	<h2>오늘은 화요일 입니다.</h2>
+	<h2>오후 늦게 비가온다는 예보가 있습니다.</h2>
+	<h2>퇴근하실 때 비가올 수 있습니다... 우산들 가지고 오셨나요???</h2>
+</body>
+</html>

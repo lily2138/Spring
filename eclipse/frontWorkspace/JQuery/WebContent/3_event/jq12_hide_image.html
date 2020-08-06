@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이미지 숨기기 hide()	|	이미지 보이기 show() </title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 일단은 이미지 숨긴다.
+		//2. 사진 보기 부분의 배경색은 노랑으로 지정....css
+		$('#imageView').hide();
+		$('#mouseIn').css('background', 'yellow');
+		
+		/* //3.
+		$('#mouseIn').mouseenter(function() {
+			//$('#imageView').show(3000);
+			//$('#imageView').show(slow);
+			$('#imageView').fadeIn(2000);
+		});
+		
+		//4.
+		$('#mouseIn').mouseleave(function() {
+			//$('#imageView').hide(3000);
+			//$('#imageView').hide(slow);
+			$('#imageView').fadeOut(2000);
+		}); */
+		
+		//5. hover()
+		$('#mouseIn').hover(function() {
+			$('#imageView').show(3000);
+		}, function() {
+			$('#imageView').hide(3000);
+		})//hover()
+	})
+</script>
+</head>
+<body>
+<span id="mouseIn">++++++++++ 사진 보기 +++++++++</span>
+<div id="imageView"><img src="../image/1.JPG" width="300" height="400"></div>
+</body>
+</html>
+
+
+
+<!-- 
+val()
+html(), text()
+setTimeout(function(){
+	//동작....단 한번만....
+},3000);
+
+setInterval(function(){
+	//동작....단 한번만....
+},3000);
+
+bind(), click(), hover(), each()
+unbind()
+hide(), show(), fadeOut(), fadeIn()
+find()
+addClass(), removeClass(), css()
+mouseenter(), mouseleave()
+ -->

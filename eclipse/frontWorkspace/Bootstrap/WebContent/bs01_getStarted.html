@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <!-- 
+  	width=device-width : 페이지의 너비를 기기의 스크린 너비로 조정
+  	initial-scale=1 : 처음 페이지 로딩할 때 확대/축소가 되지 않는 원래크기로 사용.... 0~1
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  
+ <!-- bootstrap 라이브러리를 인크루드 하기 전에 반드시 jquery 라이브러리를 먼저 인크루드 해야한다.
+ 	  bootstrap은 jquery를 기반으로 만들어졌기 때문이다.
+  -->
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+<!-- 
+부트스트랩 그리드....grid
+한줄은 기본적으로 12칸으로 구성되어져 있다는 맥락....
+예를 들어서 정확히 3등분 하고 싶다면....
+<div class="col-sm-4">
+디바이스 크기
+가장 작은 크기(모바일)   --- 너비768px   XS
+중간 크기(태블릿)   --- 768px <    SM
+중간 크기(노트북)   --- 992px <   MD
+가장 큰크기(데스크탑)   --- 1200px    LG
+ -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+<!--     <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div> -->
+    <div class="col-lg-6">
+      <h3>Column 3</h3>        
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

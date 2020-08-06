@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+*{
+	color: purple;
+}
+h2{
+	color: orange;
+	font-family: sans-serif;
+	font-size:25px;
+}
+#wrap{
+	background: magenta;
+}
+
+.block{
+	border: 2px solid black;
+}

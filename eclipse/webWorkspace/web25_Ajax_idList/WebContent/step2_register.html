@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr;
+	function startRequest(){
+		var id = document.getElementById("id").value;
+		
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		//xhr.open("get", "idCheck.do?id="+id);
+		xhr.open("post", "idCheck.do");
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+		xhr.send("id="+id);
+	}
+	function callback(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var flag = xhr.responseText
+				var resultSpan = document.getElementById("idCheckView")
+				if(flag=="true"){
+					resultSpan.innerHTML = "<font color=pink size=4>사용불가</font>";
+				}else{
+					resultSpan.innerHTML = "<font color=green size=4>사용가능</font>";
+				}
+
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h3>회원가입</h3>
+
+<form action="register.do" name="registerForm" >
+	ID : <input type="text" name="id" id="id" required="required">
+	<input type="button" value="중복확인" onclick="startRequest()">
+	<span id = "idCheckView"></span><br><br>
+	PASSWORD : <input type="password" name="password" required="required"><br><br>
+	NAME : <input type="text" name="name" required="required"><br><br>
+	ADDRESS : <input type="text" name="address" required="required"><br><br>
+	
+	<input type="submit" value="member register">
+</form>
+</body>
+</html>

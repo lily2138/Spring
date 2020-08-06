@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		//1. getElementsByName()
+		var cityarr = document.getElementsByName('city');
+		for(var i=0; i<cityarr.length; i++){
+			cityarr[i].innerHTML = 'getElementsByName['+i+']번째 접근';
+		}
+		
+		//2. querySelector('#p1'), querySelectorAll('.region')
+		var queryAll = document.querySelectorAll('.region');
+		for(var i=0; i<queryAll.length; i++){
+			queryAll[i].style.color = 'red';
+		}
+	}
+</script>
+</head>
+<body>
+	<p name="city">서울 남부</p>
+	<p name="city">서울 서초</p>
+	
+	<p id="p1">Encore Academy 남부</p>
+	<p id="p1">Encore Academy 서초</p>
+	
+	<p class="region">남부지점은 3호선 남부터미널역 2번 출구에서 400m 지점에 있습니다.</p>
+	<p class="region">서초지점은 2호선 서초역 1번 출구에서 600m 지점에 있습니다.</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#frm').submit(function(){
+			//alert('aaa');
+			//폼에 입력된 모든 데이타를 일괄적으로 쿼리스트링으로 만들어서 전송하는 기능.... serialize()
+			var query = $(this).serialize();
+			alert(query);
+			
+			return false;
+		})//submit
+	})//ready
+</script>
+</head>
+<body>
+	<form action="SerialAjax" id="frm">
+		NAME <input type="text" name="name">
+		<input type="hidden" name="command" value="register"><p>
+		
+		<select name="tool">
+			<option>EditPlus</option>
+			<option>Amateras</option>
+			<option>Workbench</option>
+			<option>ObjectAid</option>
+		</select><p>
+		
+		<input type="checkbox" name="program" value="python"> python
+		<input type="checkbox" name="program" value="Numpy"> Numpy
+		<input type="checkbox" name="program" value="Pandas"> Pandas
+		<input type="checkbox" name="program" value="Matplot"> Matplot
+		<p>
+		<input type="submit" value= "FormDataSend">
+	</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//submit()은 선택자를 form으로 지정해야한다.
+		$('#memberFrm').submit(function(){	//onsubmit 속성과 동일.... selector를 form
+			//1. 폼값을 받는다.
+			var id=$('#userId').val();
+			var name=$('input[name=userName]').val();
+			var addr=$(':text[name=userAddr]').val();
+			//alert(id+","+name+", "+addr);
+			
+			//2. confirm 창으로 연결한다... 확인/취소.... return
+			return confirm(name+" 님의 정보를 서버로 전송할까요?");
+		})
+	})
+</script>
+</head>
+<body>
+<h2>Form으로 전송한 값 서버에서 받아서 처리하기</h2>
+<form action="05_result.jsp" method="get" id="memberFrm">
+아이디 : <input type="text" name="userId" id="userId"> <br><br>			<!-- form에 name이 key로 잡힌다.  -->
+이   름 : <input type="text" name="userName" id="userName"> <br><br>
+주   소 : <input type="text" name="userAddr" id="userAddr"> <br><br>
+<input type="submit" value="DataSend">
+</form>
+</body>
+</html>

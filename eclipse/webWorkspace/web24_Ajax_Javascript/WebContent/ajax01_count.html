@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var xhr;
+	function startRequest(){	//요청에 해당하는 로직을 담는 메소드
+		xhr = new XMLHttpRequest();	//필드와 메소드
+		//alert(xhr);
+		
+		xhr.onreadystatechange = callback;
+		alert(xhr.readyState);
+		xhr.open("get", "CountServlet?id=ajax&&pass=1212", true);   //true 생략가능 
+		//alert("xhr....");
+		
+		xhr.send(null);		//이때 서버로 날라간다... 실질적인 요청이 들어간다
+	}
+	
+	function callback(){	//응답에 해당하는 로직을 담는 메소드
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var text = xhr.responseText;
+				//
+				document.getElementById("resultView").innerHTML = 
+					"<h4><font color=blue>" + text +"</font></h4>"
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h2>Show Count</h2>
+<input type="button" value="count 증가" onclick="startRequest()">
+<p></p>
+<span id = "resultView"></span>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>web01_LeeChiJong</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoginForm</display-name>
+    <servlet-name>LoginForm</servlet-name>
+    <servlet-class>servlet.loginForm.LoginForm</servlet-class>
+    <init-param>
+      <param-name>path</param-name>
+      <param-value>c:\\filestore\\userinfo\\member.txt</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginForm</servlet-name>
+    <url-pattern>/LF</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoginError</display-name>
+    <servlet-name>LoginError</servlet-name>
+    <servlet-class>servlet.loginForm.LoginError</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginError</servlet-name>
+    <url-pattern>/LE</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoginSuccess</display-name>
+    <servlet-name>LoginSuccess</servlet-name>
+    <servlet-class>servlet.loginForm.LoginSuccess</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginSuccess</servlet-name>
+    <url-pattern>/LS</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

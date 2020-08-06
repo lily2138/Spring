@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function reserve() {
+		var ma=document.movieFrm.movie;
+		//alert(ma.length);//4
+		//alert(ma[0].value);
+		//alert(ma[3].checked);
+		
+		//1. 해보기
+		/*
+			   만약에 특정한 영화가 선택되었다면
+			  선택한 영화의 이름을 alert창으로 출력...
+			  선택한 영화가 해제가 되고
+			  for문을 빠져나간다..
+			  
+			  만약에 어떤 영화도 선택하지 않았다면
+			  하나의 영화는 선택하라는 메세지 alert
+			*/
+		var flag = false;
+		for(var i=0; i<ma.length; i++){
+			if(ma[i].checked){
+				alert(ma[i].value+" 영화 예약!!");
+				ma[i].checked = false; 
+				flag = true;
+				break;
+			}
+		}//
+		
+		if(flag==false) alert("영화 하나는 선택해줘요!!");
+	}
+</script>
+</head>
+<body>
+<form name="movieFrm">
+	<input type="radio" name="movie" value="그을린 사랑">그을린 사랑<br/>
+	<input type="radio" name="movie" value="타임 패러독스">타임 패러독스<br/>
+	<input type="radio" name="movie" value="셔터아일랜드">셔터아일랜드<br/>
+	<input type="radio" name="movie" value="식스센스">식스센스<br/>
+	<input type="button" value="Reservation" onclick="reserve()">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

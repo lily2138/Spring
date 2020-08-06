@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<h2>JavaScript Object :: Json....</h2>
+<p id="view"></p>
+
+<script type="text/javascript">
+	var person = {
+		firstName : "John",
+		lastName : "Smith",
+		age : 50,
+		eyecolor:'blue',
+		fullName:function(){
+			return this.firstName + " " + this.lastName;
+		}
+	};
+	
+	document.getElementById("view").innerHTML = 
+		//person.name + " is " + person.age + " years old...."
+		person.fullName();
+</script>
+
+</body>
+</html>

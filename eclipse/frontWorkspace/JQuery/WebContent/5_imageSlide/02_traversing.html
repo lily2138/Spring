@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table tr td{
+		border : 2px solid black;
+		margin : 10px;
+		width : 80px;
+		height : 90px;
+	}
+	.small img{ border : none; margin : 10px; width : 80px; height : 90px; }
+	.large img{ width : 450px; }
+	
+	.hover{ background: lime; color: black;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 마우스가 작은 이미지 영역 안에 들어가면 hover 효과 나타나도록.... | small hover(,)
+		$('.small').hover(function(){
+			//mouseenter
+			$(this).parent().addClass('hover');
+			
+			//마우스가 진입한 이미지의 이름을 받아와서 그 이름의 large이미지쪽으로 건넨다.
+			var imagename = $(this).attr('href');
+			
+			$('.large').children().fadeOut(1000);
+			$('.large').children().attr('src',imagename);
+			$('.large').children().fadeIn(1000);
+			
+		}, function(){
+			//mouseleave
+			$(this).parent().removeClass('hover');
+			//alert($(this).attr('href')); attr('src',imagename);
+			
+		})//hover
+		
+		//td태그 안에서 p 태그를 찾아서....css()를 적용....td, find().css()
+		//글씨사이즈 12, 진하게, 색깔은 pink;
+		$('td').find('p').css({
+			'font-size':'12',
+			'font-weight':'bold',
+			'color':'pink'
+		})
+	})
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td width=150 height=200 align=center>
+			<a href="../image/2.JPG" class="small">
+				<img alt="" src="../image/2.JPG">
+			</a>
+			<p>썬그라스</p>
+		</td>
+		<td width=350 align="center" rowspan="5">
+			<a href="../image/2.JPG" class="large">
+				<img alt="" src="../image/2.JPG">
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td width=150 height=200 align=center>
+			<a href="../image/3.JPG" class="small">
+				<img alt="" src="../image/3.JPG">
+			</a>
+			<p>반바지</p>
+		</td>
+	</tr>
+	
+	<tr>
+		<td width=150 height=200 align=center>
+			<a href="../image/4.JPG" class="small">
+				<img alt="" src="../image/4.JPG">
+			</a>
+			<p>머리핀</p>
+		</td>
+	</tr>
+	<tr>
+		<td width=150 height=200 align=center>
+			<a href="../image/5.JPG" class="small">
+				<img alt="" src="../image/5.JPG">
+			</a>
+			<p>파마머리</p>
+		</td>
+	</tr>
+	<tr>
+		<td width=150 height=200 align=center>
+			<a href="../image/1.JPG" class="small">
+				<img alt="" src="../image/1.JPG">
+			</a>
+			<p>김태희</p>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

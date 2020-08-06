@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 동작 원리</title>
+<script type="text/javascript">
+
+	//1. 
+	/* function calc(x,y){	//calc 변수 생성하고 함수 할당
+		return x + y;
+	}
+	console.log(calc(5,3));	//8이 아니라 15가 출력된다.
+	
+	function calc(x,y){	//기존 calc 변수에 곱셈 기능을 가진 새로운 함수를 할당
+		return x * y;
+	}
+	
+	console.log(calc(5,3));	//15 */
+	
+	
+	//2.
+	var calc = function(x,y){
+		return x + y;
+	}
+	console.log(calc(5,3));	//8
+	
+	var calc = function(x,y){	
+		return x * y;
+	}
+	
+	console.log(calc(5,3));	//15
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

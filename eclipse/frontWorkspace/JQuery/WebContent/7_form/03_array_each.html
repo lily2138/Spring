@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$('#eachBtn').click(function(){   //버튼을 클릭하면 배열을 생성....
+			var array = [];   //선언과 생성
+			array.push('이나영');
+			array.push('원빈');
+			array.push('고소영');
+			array.push('장동건');
+			
+			//alert(array.length);
+			//alert(array.toString());
+			
+			//1. for문을 사용해서 alert창 한번 뜨고 그 안에 ㅁ,ㅁ,ㅁ,ㅁ
+			var data = '';
+			/* for(var i=0; i<array.length; i++){
+				data += array[i] + " ";
+			}
+			alert(data); */
+			
+			//2. each() 함수....
+			$(array).each(function(index){
+				//alert(index+1+"."+array[index]);
+				data += array[index] + " ";
+			})
+			alert(data);
+			
+			//3. each() 함수....
+			$.each(array,function(index){
+				data += index+1+"."+array[index];
+			})
+			alert(data);
+			alert($.inArray('장동건',array))	//3   >>>'장똥건' 이라고하면 error가 안나고 -1이 나온다.
+			
+		})
+	})
+</script>
+</head>
+<body>
+<input type="button" value="배열에  each() 적용" id="eachBtn">
+
+</body>
+</html>

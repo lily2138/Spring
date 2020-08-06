@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//alert(ca.length); checked...
+/*
+	선택한 이상형들을 alert창으로 출력....한번 창열리고..ㅁㅁㅁ,ㅊㅊㅊ,ㄴㄴㄴ
+	한명도 선택하지 않으면..alert...
+*/
+	function choiceBox() {
+		var ca = document.checkFrm.boy;
+		var data = "";
+		for(var i=0; i<ca.length; i++){
+			if(ca[i].checked){
+				data += ca[i].value+ " ";
+			}
+			ca[i].checked = false;
+		}
+		if(data==""){alert("영화 하나는 선택!!")}
+		else{ alert("당신의 이상형은 "+data+" 입니다.")}
+	}
+</script>
+</head>
+<body>
+<form name="checkFrm">
+<strong>이상형을 선택하세요(여러명 선택 가능합니다.)</strong><br/><br/>
+<input type="checkbox" name="boy" value="김선생님">김선생님<br/>
+<input type="checkbox" name="boy" value="이태호">이태호<br/>
+<input type="checkbox" name="boy" value="조정석">조정석<br/>
+<input type="checkbox" name="boy" value="공유">공유<br/>
+<input type="checkbox" name="boy" value="이동욱">이동욱<br/>
+<input type="button" value="선택" onclick="choiceBox()">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

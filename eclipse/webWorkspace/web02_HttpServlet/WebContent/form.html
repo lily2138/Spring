@@ -1,0 +1,30 @@
+<!--
+Get방식은 데이타 전달이 목적이 아니라 페이지 연결이 목적이다. 
+그래서 주소창에다가 데이터를 줄줄이 붙여서 보낸다. 도시락 안쌈.
+body가 없이 날라간다.  request에 안담김 >>>> 한글처리는 서버에서 처리하고 넘어간다
+
+Post방식은 데이터를 전달하는게 목적 
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Form Data....</h2>
+<form method = "post" action="FS">
+ID <input type="text" name="userId"><br><br>
+PASS<input type="password" name="userPass"> <br><br>
+<strong>좋아하는 메뉴....</strong>
+<input type="checkbox" name="menu" value="짜장면">짜장면
+<input type="checkbox" name="menu" value="김치볶음밥">김치볶음밥
+<input type="checkbox" name="menu" value="닭도리탕">닭도리탕
+<input type="checkbox" name="menu" value="파스타">파스타
+<br><br>
+<input type="submit" value="DataSend">
+</form>
+</body>
+</html>

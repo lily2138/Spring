@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bind() : 하나 혹은 여러개의 이벤트를 바인하는 기능</title>
+<style type="text/css">
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		//1. 선택자와 이벤트 함수를 연결.... 가장 기본....
+		//h2태그를 클릭하면.... 어떤 일이 발생하는지를 구현....
+		$('h2').bind('click',function(){
+			//$(this).html('hello');   //innerHTML와 동일
+			
+			/* $(this).html(function(index, html) {
+				return html+'★';
+			})//html() */
+			
+			//2. 
+			$('h2').html(function(index, html) {
+				switch(index){
+					case 0: return html+'★';
+					case 1: return html+'♣';
+					case 2: return html+'♥';
+				}
+			})
+			
+		})//bind()
+		
+	})
+</script>
+</head>
+<body>
+	<h2>오늘은 화요일 입니다.</h2>
+	<h2>오후 늦게 비가온다는 예보가 있습니다.</h2>
+	<h2>퇴근하실 때 비가올 수 있습니다... 우산들 가지고 오셨나요???</h2>
+</body>
+</html>

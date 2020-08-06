@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var myName = "James";
+firstName = "Gosling";	//자동으로 전역변수에 추가된다.
+name = "James Gosling";
+console.log(myName);
+console.log(firstName);
+console.log(name);
+
+function showAge(){
+	age = 90;	//age는 전역변수
+	console.log(age);
+}
+
+showAge(); //90
+console.log(age);	//age는 전역변수이므로 함수 밖에서 써도 나온다.
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

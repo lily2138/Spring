@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+	h1{
+		text-align: center;
+		color : red;
+		text-shadow: 2px 2px 2px grey;
+	}
+	
+	h3{
+		color : green;
+	}
+
+	.contents{
+		text-align : right;
+		margin-right: 100px;
+	}
+	
+
+	fieldset{
+		width : 660px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	p{
+		font-weight: bold;
+	}
+		
+	.textRedStyle{
+		border:1.5px solid red;
+		width : 300px;
+	}
+	
+	.textBasicStyle{
+		border:1.3px solid grey;
+		width : 300px;
+	}
+	
+		#submitStyle{
+		text-align : right;	
+	}
+	
+	.buttonStyle{
+		width:150px;
+		background-color: lightgrey;
+	}
+</style>
+</head>
+<body>
+<h1>Become a Member</h1>
+
+<hr style="border: solid 3px orange;">
+
+
+<form action="#">
+	<fieldset>
+		<legend><h3>Registration Information</h3></legend>
+		<div class='contents'>
+			<p>E-mail: <input class = 'textRedStyle' type="text" name="email"> </p>
+			<p>Password: <input class = 'textRedStyle' type="text" name="password" value="At least 6 letters or numbers"> </p>
+			<p>Verify Password: <input class = 'textRedStyle' type="text" name="verify password"> </p>
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<legend><h3>Member Information </h3></legend>
+		<div class='contents'>
+			<p>Frist Name: <input class = 'textRedStyle' type="text" name="Frist Name"> </p>
+			<p>Last Name: <input class = 'textRedStyle' type="text" name="Last Name"> </p>
+			<p>Address: <input class = 'textBasicStyle' type="text" name="Address"> </p>
+			<p>City: <input class = 'textRedStyle' type="text" name="City"> </p>
+			<p>State: <input class = 'textRedStyle' type="text" name="State" value="2-character code"> </p>
+			<p>ZIP Code: <input class = 'textRedStyle' type="text" name="ZIP Code" value="5 or 9 digits"> </p>
+			<p>Phone Number: <input class = 'textBasicStyle' type="text" name="Phone Number" value="999-999-9999"> </p>
+		</div>
+	</fieldset>
+		
+	<fieldset>
+		<legend><h3>Membership Information </h3></legend>
+		<div class='contents'>
+			<span>Membership Type</span>
+			<select class = 'textBasicStyle' name="menu">
+				<option value="Junior">Junior</option>
+				<option value="Senior">Senior</option>
+				<option value="None">None</option>
+			</select>
+			<p>Starting Date: <input class = 'textRedStyle' type="text" name="Starting Date" value="mm/dd/yyyy"> </p>
+			<p>Tickets For Guests: <input class = 'textBasicStyle' type="text" name="Tickets For Guests" value="2"> </p>
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<legend><h3>Submit Your Membership</h3></legend>
+		<div id='submitStyle'>
+			<input class='buttonStyle' type="submit" value="Submit">
+			<input class = 'buttonStyle' type="button" value="Reset Fields">
+		</div>
+	</fieldset>
+	</form>
+	
+	<br>
+	<hr style="border: solid 3px yellow;">
+	<br>
+	<footer style="text-align: right;">
+		<p1>Copyright 2020 Encore Academy</p1>
+	</footer>
+	
+	<br>
+
+</body>
+</html>

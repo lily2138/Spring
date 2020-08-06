@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복합 연산자</title>
+<script type="text/javascript">
+/* 	var list = "aaa"; //데이타 타입이 동적으로 할당
+	alert(list); */
+	
+	/*
+	window.onload
+	html 문서에 포함된 모든 콘텐츠가 로드된 후에 실행하는 함수
+	동일한 문서에 오직 하나만 존재한다.
+	
+	여러개 존재할 수 있고 훨씬 동작이 유연한 함수....
+	Jquery의 ready 함수이다.
+	*/
+	window.onload = function(){
+		var list = ''; //데이타 타입이 동적으로 할당
+		//복합연산자 사용
+		list += '<ul>';
+		list +=   '<li>Hello</li>';
+		list +=   '<li>JavaScript!!!</li>';
+		list += '</ul>';
+		
+		//li변수안의 있는 내용을 웹 브라우저에 출력.... body태그 아래에 붙이면 된다.
+		document.body.innerHTML = list;
+	}
+</script>
+</head>
+<body>
+<h2>======OnLoad======</h2>
+</body>
+</html>
