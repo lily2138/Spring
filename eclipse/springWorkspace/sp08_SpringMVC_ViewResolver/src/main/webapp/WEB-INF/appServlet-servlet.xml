@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 <!-- 
 컨트롤러가 수행한 후, 리턴되는 객체는 ModelAndView이다.
 ModelAndView에는 View 페이지 이름 + Model(Data)정보가 담겨져 있다.
@@ -14,5 +16,30 @@ ViewResolver의 디폴트 클래스가 InternalResourceViewResolver다.
 하지만, 이런 용도 외에도 아주 중요한 의미가 있다.
 FileDownload, Ajax기술을 사용하려면 반드시 BeanNameViewResolver를 알아야 한다.
  -->
+ 
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/response/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1"/>
+	</bean>
+
+<!-- 
+beanNameResolver는 우선순위를 0으로 했기 때문에 View Page의 이름을 찾을 때 이곳에서 먼저 찾는다.... 찾아서 있으면
+결과 페이지로 연결되고, 찾았는데 없으면 viewResolver가서 다시 찾게 된다.
+beanNameResolver는 결과페이지 매피하는 부분이 따로 없다.... 그말은 여기가 아니라
+JstlView 빈에서 해준다
+ -->
+
+	<bean id="beanNameResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"/>
+	</bean>
+	<bean name="board_result" class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="board/result/find_ok.jsp"/>
+	</bean>
+	<bean name="product_result" class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="product/result/find_ok.jsp"/>
+	</bean>
+	
+	<context:component-scan base-package="com.encore.spring.controller"></context:component-scan>
 
 </beans>
