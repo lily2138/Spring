@@ -1,0 +1,5 @@
+bean 설정문서에는 interface가 안나오고
+java code에서는 실제코드가 안나온다
+즉,
+java code에서는 interface로 다루고
+bean설정문서에넌 실제코드를 다룬다

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="MemberMapper">
+	 <resultMap type="member" id="memberSelectRM">
+		<result property="id" column="member_id"/>
+		<result property="password" column="member_password"/>
+		<result property="name" column="name"/>
+		<result property="address" column="address"/>
+	</resultMap> 
+	
+	<sql id="select-members">
+		SELECT
+		member_id, member_password, name, address
+		FROM member
+	</sql>
+	
+	<select id="allMemberList" resultMap="memberSelectRM">
+		<include refid="select-members"/>
+	</select>
+	
+	<select id="getMember" parameterType="string" resultMap="memberSelectRM">
+		<include refid="select-members"/>
+		WHERE member_id = #{value}  
+	</select>
+	
+	<insert id="registerMember">
+		INSERT into member(member_id, member_password, name, address)
+		VALUES(#{id}, #{password}, #{name}, #{address})
+	</insert>
+	
+	<update id="updateMember">
+		UPDATE member
+		SET member_id=#{id}, member_password=#{password}, name = #{name}, address = #{address}
+		WHERE member_id=#{id}
+	</update>
+
+</mapper>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

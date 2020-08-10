@@ -1,0 +1,17 @@
+input type= 
+	text
+	password	
+	radio (둘중에하나선택)
+	checkbox (동시에 여러개 선택 가능)
+	file (파일업로드)
+	date(달력)
+	submit(전송)
+	button
+	reset(초기화)
+	number
+	tel
+
+select
+	option
+textarea	rows	cols
+

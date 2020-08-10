@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr;
+	function startRequest(){
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = callback;
+		xhr.open("get", "SearchId.do");
+		xhr.send(null);
+	}
+	
+	//응답하는 코드부분의 로직....
+	function callback(){
+		if(xhr.readyState==4){
+			if(xhr.status==200){
+				var jsonData = JSON.parse(xhr.responseText);
+				alert(jsonData.person.name+" "+jsonData.person.address);
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<h2>비동기통신... Ajax.... Json을 이용...</h2> <p>
+<a href="insert.do">동기통신</a>
+<input type="button" value="비동기통신" onclick="startRequest()">
+</body>
+</html>
