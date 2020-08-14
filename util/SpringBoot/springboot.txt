@@ -1,0 +1,8 @@
+Spring Boot
+1. Tomcat 내장...
+2. Context-Path가 없다
+3. WEB-INF가 없다... jsp지원안한다
+   ------> jsp 라이브러리 추가해야 한다.
+4. name을 sl100이락 지정...
+   sl100Application 클래스가 생성 ---> 이걸 실행 ---> boot서버 가동
+5. poem에 반드시 추가해야하는 것 중에서 DevTool !!!!
