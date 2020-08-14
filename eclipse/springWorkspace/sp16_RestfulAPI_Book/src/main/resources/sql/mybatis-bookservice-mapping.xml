@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.book.mapper">
+	<sql id="select-book">
+		SELECT
+		isbn, title, catalogue, nation, publish_date publishDate, publisher, author, price, currency, description
+		FROM book
+	</sql>
+	<select id="getAllBook" resultType="book">
+		<include refid="select-book"/>
+	
+	</select>
+	
+	<select id="getBook" parameterType="string" resultType="book">
+		<include refid="select-book"/>
+		WHERE isbn=#{value}
+	</select>
+	<insert id="insertBook" parameterType="book">
+		INSERT
+		INTO book
+		VALUES(#{isbn},#{title},#{catalogue},#{nation},#{publishDate},#{publisher},#{author},#{price},#{currency},#{description})
+	</insert>
+	
+	
+	<update id="updateBook" parameterType="book">
+		UPDATE book
+		SET
+		title = #{title},
+		publisher = #{publisher},
+		author = #{author}
+		description = #{description}
+		WHERE
+		isbn=#{isbn}	
+	</update>
+	
+	<delete id="deleteBook" parameterType="string">
+		DELETE FROM book
+		WHERE isbn=#{value}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+

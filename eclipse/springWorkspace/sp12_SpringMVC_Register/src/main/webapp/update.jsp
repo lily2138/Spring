@@ -15,7 +15,7 @@ session에 정보를 무조건 바인딩해야하는 로직
 </head>
 <body>
 <h2>Update Member Form</h2>
-<form action="UpdateServlet" method="post">
+<form action="Update.do" method="post">
   ID : <input type="text" name="id" value="${vo.id}" readonly="readonly"> <br/> <!--  session.getAttribute("vo").getId();-->
   PASSWORD : <input type="password" name="password" value="${vo.password}"><br/>
   NAME : <input type="text" name="name" value="${vo.name}"><br/>

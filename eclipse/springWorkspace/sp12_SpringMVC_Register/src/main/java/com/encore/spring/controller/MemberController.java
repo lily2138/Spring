@@ -21,7 +21,7 @@ public class MemberController {
 	public ModelAndView register(Member member) throws Exception {
 		System.out.println("register.do....");
 		memberService.registerMember(member);
-		return new ModelAndView("AllMember.do");   //결과페이지 이동
+		return new ModelAndView("allmember");   //결과페이지 이동
 	}
 	
 	@RequestMapping("AllMember.do")
@@ -30,4 +30,12 @@ public class MemberController {
 		List<Member> list = memberService.allMembers();
 		return new ModelAndView("allView", "allMembers",list);   //결과페이지 이동
 	}
+	
+	@RequestMapping("Update.do")
+	public ModelAndView update(Member member) throws Exception {
+		System.out.println("Update.do....");
+		memberService.updateMember(member);
+		return new ModelAndView("update_result","vo",member);   //결과페이지 이동
+	}
+	
 }

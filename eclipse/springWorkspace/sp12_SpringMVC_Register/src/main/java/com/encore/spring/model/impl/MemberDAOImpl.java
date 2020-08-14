@@ -38,4 +38,10 @@ public class MemberDAOImpl implements MemberDAO {
 		List<Member> list = sqlSession.selectList(ns + "allMemberList");
 		return list;
 	}
+
+	@Override
+	public Member login(Member member) throws Exception {
+		Member mem = sqlSession.selectOne(ns + "loginMember", member);
+		return null;
+	}
 }

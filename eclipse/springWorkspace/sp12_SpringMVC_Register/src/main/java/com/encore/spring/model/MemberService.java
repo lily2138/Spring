@@ -11,5 +11,5 @@ public interface MemberService {
 	Member findBMemberId(String id) throws Exception;
 	List<Member> allMembers() throws Exception;
 	
-//	Member login(String id, String password) throws Exception;
+	Member login(Member member) throws Exception;
 }

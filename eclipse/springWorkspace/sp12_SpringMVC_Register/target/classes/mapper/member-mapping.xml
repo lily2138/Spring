@@ -25,12 +25,12 @@
 		WHERE member_id = #{value}  
 	</select>
 	
-	<insert id="registerMember">
+	<insert id="registerMember"  parameterType="member">
 		INSERT into member(member_id, member_password, name, address)
 		VALUES(#{id}, #{password}, #{name}, #{address})
 	</insert>
 	
-	<update id="updateMember">
+	<update id="updateMember"  parameterType="member">
 		UPDATE member
 		SET member_id=#{id}, member_password=#{password}, name = #{name}, address = #{address}
 		WHERE member_id=#{id}

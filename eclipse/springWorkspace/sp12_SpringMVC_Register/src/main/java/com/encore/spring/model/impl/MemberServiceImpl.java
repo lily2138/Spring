@@ -37,6 +37,12 @@ public class MemberServiceImpl implements MemberService {
 		List<Member> list = memberDAO.allMembers();
 		return list;
 	}
+	
+	@Override
+	public Member login(Member member) throws Exception {
+		Member mem = memberDAO.login(member);
+		return null;
+	}
 
 
 
