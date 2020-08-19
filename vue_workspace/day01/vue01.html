@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <!-- M V VM -->
+    <!-- 1. 화면 부분 :: View(v) -->
+    <div id='app'>
+        <h2>{{title}}</h2>
+    </div>
+
+    <script>
+        // 2. 데이타 :: Model
+        var model = {
+            title: 'ENCORE'
+        }
+
+        // 3. 뷰모델 부분 :: VueModel(VM)   ---   MVC패턴에서 C역할이다.
+        var app = new Vue({
+            //el : 어떤 화면 영역에 적용시킬지를 지정....
+            el: '#app',
+
+            //data : 해당 화면에서 출력할 정보(데이타)를 지정....
+            data: model
+        })
+    </script>
+</body>
+
+</html>

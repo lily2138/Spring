@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- 콧수염 표현식 (Mustache Expression) -->
+        <div>{{title}}</div>
+
+        <!-- 디렉티브 -->
+        <div v-text="title"></div>
+        <div v-html="title"></div>
+    </div>
+
+    <!-- script부분이 위에 올라오면 안된다.html부분의 로딩이 아직 안된상태에서 랜더링을 시도하기 때문이다. -->
+    <script>
+        var model = {
+            title: '<h2>Encore</h2>'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: model
+        })
+    </script>
+</body>
+
+</html>

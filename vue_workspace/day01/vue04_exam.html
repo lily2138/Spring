@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('h2').text('데이타');
+
+            var person = {
+                name: '홍길동',
+                age: '11',
+                addr: '여의도'
+            }
+
+            var app = new Vue({
+                el: '#sample',
+                data: person
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 1. 화면구성 :: view -->
+    <h2 align="center">START!!!!</h2>
+    <div align="center" id="sample">
+        <h3>Person</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{name}}</th>
+                    <td>{{age}}</td>
+                    <td>{{addr}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<!-- 
+        +++++++++++++++++++++해보가+++++++++++++++++
+        모델 데이타에 이름, 나이, 사는 곳을 객체로 선언하고
+        화면에 테이블 형식으로 출력
+
+        EX)
+           이름 : 홍길동
+           나이 : 11
+           사는 곳 : ㅂㅂㅂ
+           Vue04_exam.html
+     -->

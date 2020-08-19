@@ -1,0 +1,30 @@
+<!-- 양방향 데이타 바인딩.... -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}<br>
+        <input type="text" name="greet" v-model="message" />
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "First Hello Vue~~~!!!"
+            }
+        })
+    </script>
+</body>
+
+</html>

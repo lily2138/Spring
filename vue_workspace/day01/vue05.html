@@ -1,0 +1,59 @@
+<!-- 
+    화면 출력 방법
+    1. {{}}
+    2. 기본 디렉티브
+        <tag v-text="title">
+        <tag v-html="title">
+    3. 속성 설정(src, align) : 기본 속성을 모델 데이타로 매핑시킬 때 사용
+       1) v-bind : 속성="모델명"
+       2) : 속성="모델명"
+
+
+    var app = new Vue({
+        el :
+        data :
+    })
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var model = {
+                message1: 'Mustach 방법으로 출력하기',
+                message2: '<h2>기본 디렉티브 출력방법1</h2>',
+                message3: '<h2>기본 디렉티브 출력방법2</h2>',
+
+                // 속성값 추가하기
+                prop1: 'center',
+                prop2: 'http://sample.bmaster.kro.kr/photos/61.jpg'
+            }
+
+            var app = new Vue({
+                el: '#app',
+                data: model
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{message1}}</h2>
+        <h2 v-text="message2">message2 :: </h2>
+        <h2 v-html="message3">message3 :: </h2>
+
+        <h3 v-bind:align="prop1">안녕하세요(정렬속성 설정)</h3>
+        <img v-bind:src="prop2">
+    </div>
+</body>
+
+</html>

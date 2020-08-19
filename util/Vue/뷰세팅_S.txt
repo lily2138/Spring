@@ -1,0 +1,83 @@
+<<<< VSCODE 설치및 환경 세팅 >>>>
+2019년 현재 최고의 에디터는
+stackoverflow 통계자료 발표결과 Visual Studio Code  
+현재 점유률 50.7%
+정식 출시가 2016년인 것을 감안할때 놀라은 결과
+장점 
+인기의 비결은 확장기능 
+- 마켓플레이스를 이용해 13000여개의 확장 기능이 있다.
+- 코드 자동완성
+- 라이브서버
+- 깃 내장
+-다양한 언어를 지원..TypeScript와 궁합이 잘 맞는다
+
+전 세계의 절반이상의 개발자들이 선택한 코드 툴
+
+< 주요메뉴 >
+Explorer : 폴더열기 탐색창
+Search : 검색
+Source Controll : 깃허브와 연계되었을때 사용
+Debug : 디버그
+Extensions : 프로그인 설치하고 제거할때 사용
+
+< 플러그인 설치 >
+1. Vue VSCode Snippets - 자동완성 툴 설치
+2. Beautify  - JS, CSS, HTML, BOOTSTRAP 코드를 이쁘게
+3. google fonts - 다이렉트로 구글에 접속해서 구글 폰트를 가져다 쓸수 있는 플러그인(할용도 높음)
+4. Auto Rename Tag - 여는 태그 변경시 닫는 태그 동시에 변경됨
+5. cdnjs
+6. eslint - 자바스크립트 코드 스타일, 문법 체크 기능을 제공합니다.
+7. live Server
+8. Vue 2 Snippets 
+9. Prettier-Standard - JavaScript formatter
+10. vetur: Vuew.js 작업시 편리한 기능들을 제공합니다. (코드 자동완성, 디버깅, 하이라이팅 등...)
+11. HTML Snippets: HTML 태그를 빠르게 작성할 수 있게 도와줍니다.
+12. Vue-beautify: Vue.js 코드에 대한 정리 배치 기능을 제공합니다.
+13. HTML Snippets: HTML 태그를 빠르게 작성할 수 있게 도와줍니다.
+14. JS-CSS-HTML Formatters: JS, CSS, HTML의 코드 자동완성 기능을 제공합니다 (사용법 Ctrl + Space)
+
+* 라이브서버로 브라우저 뜰때 크롬으로 변경하는 방법
+Ctrl + ,  ==> Settings > Text Editor > Files > settings.json > 
+   "liveServer.settings.ChromeDebuggingAttachment": true,
+    "liveServer.settings.CustomBrowser": "chrome"
+    ---> 2개를 추가해야함
+
+* 자동태그 완성 뷰에도 적용하기
+Ctrl + , > Text Editor > Files > settins.json
+"auto-rename-tag.activationOnLanguage": [
+        "html",
+	 "vue",
+        "xml",
+        "php",
+        "javascript"
+    ]
+  ---> 이렇게 하면 자동태그 완성이 뷰도 된다.
+
+* 자동저장(시간지정)
+ F1 > Open Your Settings> Files > Auto Save - AfterDelay
+			   > Auto Save Delay : 500(0.5초 뒤에 저장) 
+
+
+<단축키>
+Ctrl + /   :   한줄주석
+Shift + alt + a   :   커서 위치에서 주석토글
+ctrl + x  라인삭제
+shift+alt+Down   라인복사
+Ctrl + shift + k  :  한줄 지우기
+Ctrl + X   :   한줄을 선택하지 않고 커서만 두고도 한줄 잘라내기 가능
+Ctrk _ C   :   한줄을 선택하지 않고 커서만 두고도 한줄 복사하기 가능
+Ctrl+Alt+Down   :   전체가 선택된 상태에서 커서를 아래에 추가
+Ctrl+Alt+Up   :   전체가 선택된 상태에서 커서를 위에 추가
+Ctrl + D   :   특정 단어를 선택한 상태에서 누르면 그 다음에 있는 단어가 선택된다.
+                 선택된 단어를 다른 내용으로 수정가능
+Ctl+Shift+L   :   현재 선택 항목을 모두 선택
+ctrl + F5   :   실행
+ctrl+shift+b   :   빌드 작업 실행
+
+VSCode  언어 변경하기
+커맨트 파레트 : ctrl + shift + p  -> 표시 언어 구성 후 en으로 변경
+
+Vue 공식 가이드 사이트
+https://kr.vuejs.org/v2/guide/index.html
+
+

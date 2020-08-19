@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="n in numbers">{{n}}</li>
+        </ul>
+        <table border="1">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+            </tr>
+            <tr v-for="p in peoples" v-if="p.age>=40">
+                <td>{{p.name}}</td>
+                <td>{{p.age}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                numbers: [1, 2, 3, 4, 5, 6, 7],
+                peoples: [{
+                    name: '이순신',
+                    age: 10
+                }, {
+                    name: '강감찬',
+                    age: 60
+                }, {
+                    name: '을지문덕',
+                    age: 40
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

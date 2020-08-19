@@ -1,0 +1,46 @@
+<!-- 
+    {{ }}, v-text, v-html
+    v-bin:src, v-bind:align    ---- 여러개의 속성 바인딩
+    v-model
+
+    v-for
+    v-if
+    v-show
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="show">나는 보입니다.
+            <!-- 아주 복잡하고 연산이 오래걸리는 작업을 처리하는 경우라 생각해보자.... -->
+
+        </h1>
+
+        <h1 v-show="show">나는 보입니다.
+            <!-- 아주 복잡하고 연산이 오래걸리는 작업을 처리하는 경우라 생각해보자.... -->
+            <!-- display:none -->
+        </h1>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            }
+        })
+    </script>
+</body>
+
+</html>
