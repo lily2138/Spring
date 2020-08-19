@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <label>encore 특정지역 개설된 반 수 : </label>
+        <input type="number" v-model="count">
+
+        <h2>
+            객체배열 - 번호, 내용 출력
+        </h2>
+        <ul>
+            <li v-for="(e,index) in encore" v-if="e.count==count">
+                지역: {{e.name}} 반수: {{e.count}}
+            </li>
+        </ul>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+                encore: [{
+                    name: "영등포구",
+                    count: 2
+                }, {
+                    name: "남부지구",
+                    count: 5
+                }, {
+                    name: "서초구",
+                    count: 3
+                }]
+
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- 
+    0=="" true
+    0==="" false
+
+ -->

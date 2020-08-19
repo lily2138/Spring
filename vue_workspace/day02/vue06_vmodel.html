@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>중식 메뉴들 입니다. 좋아하는 메뉴를 있는대로 고르세요</h2>
+        <input type="checkbox" value="짜장면" v-model="menu">짜장면
+        <input type="checkbox" value="짬뽕" v-model="menu">짬뽕
+        <input type="checkbox" value="팔보채" v-model="menu">팔보채
+        <input type="checkbox" value="탕수육" v-model="menu">탕수육
+        <hr/> 선택한 음식들 : <span>{{menu}}</span>
+    </div>
+    <script>
+        var model = {
+            menu: []
+        }
+        var app = new Vue({
+            el: "#app",
+            data: model
+        })
+    </script>
+</body>
+
+</html>

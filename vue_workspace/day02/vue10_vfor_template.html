@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style type="text/css">
+        #list {
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호></th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(contact, index) in contacts">
+                    <td>{{index+1}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.tel}}</td>
+                    <td>{{contact.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <script type="text/javascript">
+        var model = {
+            "contacts": [{
+                "no": 100,
+                "name": "채은",
+                "tel": "010-1234-2222",
+                "address": "서울"
+            }, {
+                "no": 99,
+                "name": "정용",
+                "tel": "010-2222-2222",
+                "address": "강원도"
+            }, {
+                "no": 88,
+                "name": "제영",
+                "tel": "010-3333-2222",
+                "address": "인천"
+            }, {
+                "no": 97,
+                "name": "소지섭",
+                "tel": "010-4444-2222",
+                "address": "순천"
+            }, {
+                "no": 89,
+                "name": "주혁",
+                "tel": "010-1234-2222",
+                "address": "시카고"
+            }, {
+                "no": 98,
+                "name": "소희",
+                "tel": "010-2222-2222",
+                "address": "뉴욕"
+            }, {
+                "no": 96,
+                "name": "잔나비",
+                "tel": "010-3333-2222",
+                "address": "구미"
+            }, {
+                "no": 88,
+                "name": "이정재",
+                "tel": "010-4444-2222",
+                "address": "경기도"
+            }, {
+                "no": 89,
+                "name": "강호동",
+                "tel": "010-4444-2222",
+                "address": "여수"
+            }]
+        };
+        var app = new Vue({
+            el: "#app",
+            data: model
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h2>
+            객체배열 - 내용 출력
+        </h2>
+        <ul>
+            <li v-for="e in encore">
+                지역:{{e.name}} 반 수: {{e.count}}
+            </li>
+        </ul>
+
+        <h2>
+            객체배열 - 번호, 내용 출력
+        </h2>
+        <ul>
+            <li v-for="e,index in encore">
+                {{index+1}}. {{e.name}}, {{e.count}}
+            </li>
+        </ul>
+
+        <h2>
+            객체배열 - 번호, 내용 출력
+        </h2>
+        <ul>
+            <li v-for="(e,index) in encore">
+                {{index+1}}. {{e.name}}, {{e.count}}
+            </li>
+        </ul>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                encore: [{
+                    name: "영등포구",
+                    count: 2
+                }, {
+                    name: "남부지구",
+                    count: 5
+                }, {
+                    name: "서초구",
+                    count: 3
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

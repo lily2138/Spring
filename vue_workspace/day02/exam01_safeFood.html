@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SSAFY</title>
+    <style type="text/css">
+        #second>h2 {
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            font-family: serif;
+            font-size: 16px;
+            color: blue;
+        }
+        
+        #checkboxArea1 {
+            width: 80%;
+            height: 30px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            font-family: serif;
+            font-size: 12px;
+        }
+        
+        #checkboxArea2 {
+            width: 80%;
+            height: 30px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            font-family: serif;
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id='second'>
+        <h2>ENCORE SAFE FOOD</h2>
+    </div>
+    <div id='app'>
+        <fieldset id="checkboxArea1">
+            <legend>알레르기 체크</legend>
+            <input type="checkbox" name="box" value="대두" v-model="checked"><label>대두</label>
+            <input type="checkbox" name="box" value="땅콩" v-model="checked"><label>땅콩</label>
+            <input type="checkbox" name="box" value="우유" v-model="checked"><label>우유</label>
+            <input type="checkbox" name="box" value="게" v-model="checked" /><label>게</label>
+            <input type="checkbox" name="box" value="새우" v-model="checked" /><label>새우</label>
+            <input type="checkbox" name="box" value="참치" v-model="checked" /><label>참치</label>
+            <input type="checkbox" name="box" value="연어" v-model="checked" /><label>연어</label>
+            <input type="checkbox" name="box" value="쑥" v-model="checked" /><label>쑥</label>
+            <input type="checkbox" name="box" value="소고기" v-model="checked" /><label>소고기</label>
+            <input type="checkbox" name="box" value="닭고기" v-model="checked" /><label>닭고기</label>
+            <input type="checkbox" name="box" value="돼지고기" v-model="checked" /><label>돼지고기</label>
+            <input type="checkbox" name="box" value="복숭아" v-model="checked" /><label>복숭아</label>
+            <input type="checkbox" name="box" value="민들레" v-model="checked" /><label>민들레</label>
+            <input type="checkbox" name="box" value="계란흰자" v-model="checked" /><label>계란흰자</label>
+        </fieldset>
+
+        <fieldset id="checkboxArea2" v-if="checkedM">
+            {{checked}}
+        </fieldset>
+
+
+    </div>
+    <script>
+        var model = {
+            checked: []
+        }
+        var app = new Vue({
+            el: "#app",
+            data: model,
+            computed: {
+                checkedM: function() {
+                    return this.checked.length > 0;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

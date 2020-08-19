@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        아이디:
+        <input type="text" placeholder="검색할 아이디 입력" v-model="id" @keyup="sendId">
+        <input type="text" placeholder="검색할 아이디 입력" v-model="id" @keyup.enter="sendId">
+        <input type="text" placeholder="검색할 아이디 입력" v-model="id" @keyup.13="sendId">
+        <button @click="sendId">결과보기</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                id: ""
+            },
+            methods: {
+                sendId() {
+                    alert(this.id)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

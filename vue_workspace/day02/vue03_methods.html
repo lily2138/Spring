@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-html="title"></div>
+        <div v-text="title"></div>
+        <div>{{title}}</div>
+        <div>{{showHrm()}}</div>
+        <div>{{showMyName("이름1")}}</div>
+        <div>{{changeMyName()}}</div>
+        <button @click="changeMyName">{{title}}</button>
+
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                title: "<h2>ENCORE</h2>",
+            },
+            methods: {
+                showHrm: function() {
+                    return "ENCORE" + new Date();
+                },
+                showMyName: function(name) {
+                    return name + " " + new Date();
+
+                },
+                changeMyName: function() {
+                    this.title = "ENCORE HRM";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
