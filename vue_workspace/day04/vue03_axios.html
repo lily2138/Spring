@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        
+        #second>h2 {
+            margin: auto;
+            text-align: center;
+            color: blue;
+        }
+        
+        #tid {
+            border: 1px blue;
+            margin: auto;
+            text-align: center;
+        }
+        
+        td {
+            border: 1px solid green;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="second">
+        <h2>ENCORE SAFE FOOD</h2>
+    </div>
+    <div id="app">
+        <section v-if="errored">
+            <p>Error In Axios Transport</p>
+        </section>
+        <section v-else>
+            <div v-if="loading">loading....</div>
+            <table id="tid">
+                <thead>
+                    <tr>
+                        <td>분류</td>
+                        <td>이름</td>
+                        <td>이미지</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="f in info" style="border:1px solid green">
+                        <td>{{f.productGb}}</td>
+                        <td>{{f.prdlstNm}}</td>
+                        <td><img :src='f.imgurl1'></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() { //data:{} ----> data(){} restful 같은 동적인 데이타를 처리할때는 반드시 data()
+                return {
+                    info: null,
+                    errored: false,
+                    loading: true
+                }
+            },
+            //axios 기술....
+            mounted() {
+                axios
+                    .get('./food.json')
+                    .then(response => (this.info = response.data))
+                    .catch(error => {
+                        console.log(error);
+                        this.errored = true; //여기서 errored값을 변경
+                    })
+                    .finally(() => this.loading = false)
+            },
+        })
+    </script>
+</body>
+
+</html>
