@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PhoneMapper">
+ 	<resultMap type="phone" id="phoneSelectRM">
+		<result property="num" column="num"/>
+		<result property="model" column="model"/>
+		<result property="price" column="price"/>
+		<result property="vcode" column="vcode"/>
+	</resultMap> 
+
+	<sql id="select-phones">
+		SELECT
+		p.num, p.model, p.price, c.vendor
+		FROM phones p, company c
+		WHERE p.vcode=c.vcode
+	</sql>
+	
+	<select id="phoneList" resultMap="phoneSelectRM">
+		<include refid="select-phones"/>
+	</select>
+	
+	<select id="getPhone" parameterType="string" resultMap="phoneSelectRM">
+		<include refid="select-phones"/>
+		and p.num = #{value}  
+	</select>
+	
+	<insert id="insertPhone" parameterType="phone">
+		INSERT into phones(num, model, price, vcode)
+		VALUES(#{num}, #{model}, #{price}, #{vcode})
+	</insert>
+	
+	<delete id="deletePhone" parameterType="string">
+		DELETE from phones
+		WHERE num=#{value}
+	</delete>
+	
+	<select id="getUserInfo" parameterType="userInfo" resultType="userInfo">
+		SELECT id, pw
+		From userinfo
+		WHERE id=#{id}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
